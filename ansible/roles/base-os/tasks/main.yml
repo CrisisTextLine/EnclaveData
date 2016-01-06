@@ -1,0 +1,13 @@
+- name: Install Base Packages
+  yum: name={{ item }} state=latest
+  with_items:
+   - tmux
+   - vim-common
+   - vim-enhanced
+   - ntp
+   - ntpdate
+   - epel-release
+   - net-tools
+
+- name: Update Cache and All Packages
+  yum: name=* state=latest
