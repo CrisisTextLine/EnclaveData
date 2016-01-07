@@ -11,3 +11,32 @@
 
 - name: Update Cache and All Packages
   yum: name=* state=latest
+
+- name: Enable NTP on Startup
+  service: name=ntpd state=started enabled=yes
+
+# This step required server reboot to take full effect. Why?
+- name: Disable password access through SSH
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication" state=present line="PasswordAuthentication no"
+  notify: restart sshd
+
+- name: Add Admin Local Admin Users
+  user: name={{ item }} groups=wheel shell=/bin/bash
+  with_items: "local_admins"
+
+- name: Create SSH Directory
+  file: dest=/home/{{ item }}/.ssh owner={{ item }} group={{ item }} mode=750 state=directory
+  with_items: "local_admins"
+
+- name: Setup Public Keys
+  copy: src={{ item }}-id_rsa.pub dest=/home/{{ item }}/.ssh/authorized_keys owner={{ item }} group={{ item }} mode=750
+  with_items: "local_admins"
+
+# Variablize Timezone later. Issue is with var assignment file is linked
+# as /usr/share/zoneinfo/[UTC], likely due to Django templating.
+- name: Set Timezone to UTC
+  file: src=/usr/share/zoneinfo/UTC dest=/etc/localtime state=link force=yes
+  notify: restart ntpd
+
+- name: Setup Sudoers
+  copy: src=sudoers dest=/etc/sudoers owner=root group=root mode=440
