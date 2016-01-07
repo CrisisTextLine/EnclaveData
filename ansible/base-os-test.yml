@@ -1,4 +1,0 @@
----
-- hosts: test-base
-  roles:
-    - base-os
