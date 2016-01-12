@@ -6,7 +6,7 @@
 - name: Enable LDAP on Startup
   service: name=slapd state=started enabled=yes
 
-- name: Copy Defautl DB_CONFIG into Place
+- name: Copy Default DB_CONFIG into Place
   command: /bin/cp -a /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
   args:
     creates: /var/lib/ldap/DB_CONFIG

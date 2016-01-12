@@ -11,9 +11,13 @@
    - openldap
    - openldap-clients
    - nss-pam-ldapd
+   - libsemanage-python
 
-- name: Setup SE Linux Rule
-  command: /usr/sbin/setsebool -P allow_ypbind=0 authlogin_nsswitch_use_ldap=0
+- name: Setup SE-Linux Rule to Allow LDAP Auth
+  seboolean: name={{ item }} state=no persistent=yes
+  with_items:
+    - authlogin_nsswitch_use_ldap
+    - nis_enabled
 
 - name: Install RPM Forge Repo
   yum: name=http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm state=present
