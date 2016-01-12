@@ -1,5 +1,5 @@
 - name: Install Base Packages
-  yum: name={{ item }} state=latest
+  yum: name={{ item }} state=present
   with_items:
    - tmux
    - vim-common
@@ -45,10 +45,14 @@
   copy: src={{ item }}-id_rsa.pub dest=/home/{{ item }}/.ssh/authorized_keys owner={{ item }} group={{ item }} mode=750
   with_items: "local_admins"
 
-# Variablize Timezone later. Issue is with var assignment file is linked
-# as /usr/share/zoneinfo/[UTC], likely due to Django templating.
+- name: Check Current Timezone Symlink
+  stat: path=/etc/localtime
+  register: timestat
+
 - name: Set Timezone to UTC
-  file: src=/usr/share/zoneinfo/UTC dest=/etc/localtime state=link force=yes
+  #debug: var=timestat
+  command: timedatectl set-timezone "{{ timezone }}"
+  when: timestat.stat.lnk_source != '/usr/share/zoneinfo/UTC'
   notify: restart ntpd
 
 - name: Setup Sudoers
