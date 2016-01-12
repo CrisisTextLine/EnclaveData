@@ -1,18 +1,15 @@
 - name: Install OpenLDAP Packages
   yum: name={{ item }} state=latest
   with_items:
-    - openldap
-    - openldap-clients
     - openldap-servers
-
-- name: Setup SE Linux Rule
-  command: /usr/sbin/setsebool -P allow_ypbind=0 authlogin_nsswitch_use_ldap=0
 
 - name: Enable LDAP on Startup
   service: name=slapd state=started enabled=yes
 
 - name: Copy Defautl DB_CONFIG into Place
   command: /bin/cp -a /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
+  args:
+    creates: /var/lib/ldap/DB_CONFIG
 
 - name: Set Permissions on LDAP Dir
   file: path=/var/lib/ldap state=directory owner=ldap group=ldap recurse=yes
