@@ -2,3 +2,6 @@
 local_admins:
   - sheyd
   # - cjcodes
+  #
+
+timezone: UTC
