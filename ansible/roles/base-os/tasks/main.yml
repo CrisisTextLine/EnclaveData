@@ -12,6 +12,7 @@
    - openldap-clients
    - nss-pam-ldapd
    - libsemanage-python
+   - libselinux-python
 
 - name: Setup SE-Linux Rule to Allow LDAP Auth
   seboolean: name={{ item }} state=no persistent=yes
