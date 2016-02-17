@@ -1,0 +1,15 @@
+- name: Install PosgreSQL 9.5 Repo
+  yum: name=http://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/pgdg-centos95-9.5-2.noarch.rpm state=present
+
+- name: Install PostgreSQL 9.5
+  yum: name={{ item }} state=present
+  with_items:
+    - postgresql95-server 
+    - postgresql95
+  notify: restart postgresql
+
+- name: Initialize PostgreSQL 9.5 
+  command: /usr/pgsql-9.5/bin/postgresql95-setup initdb
+  args:
+    creates: /var/lib/pgsql/9.5/data/postgresql.conf
+
