@@ -1,0 +1,11 @@
+- name: Install Base Packages
+  yum: name={{ item }} state=present
+  with_items:
+   - qemu-kvm 
+   - qemu-img 
+   - virt-manager 
+   - libvirt 
+   - libvirt-python
+   - libvirt-client
+   - virt-install
+   - virt-viewer
