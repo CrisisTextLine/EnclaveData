@@ -36,15 +36,15 @@
 
 - name: Add Admin Local Admin Users
   user: name={{ item }} groups=wheel shell=/bin/bash
-  with_items: "local_admins"
+  with_items: "{{local_admins}}"
 
 - name: Create SSH Directory
   file: dest=/home/{{ item }}/.ssh owner={{ item }} group={{ item }} mode=750 state=directory
-  with_items: "local_admins"
+  with_items: "{{local_admins}}"
 
 - name: Setup Public Keys
   copy: src={{ item }}-id_rsa.pub dest=/home/{{ item }}/.ssh/authorized_keys owner={{ item }} group={{ item }} mode=750
-  with_items: "local_admins"
+  with_items: "{{local_admins}}"
 
 - name: Check Current Timezone Symlink
   stat: path=/etc/localtime
@@ -58,3 +58,9 @@
 
 - name: Setup Sudoers
   copy: src=sudoers dest=/etc/sudoers owner=root group=root mode=440
+
+- name: Copy Hosts Allow File Into Place to Allow SSH only by default
+  copy: src=hosts.allow dest=/etc/hosts.allow owner=root group=root mode=644 backup=yes
+
+- name: Copy Hosts Deny File Into Place to Disallow all services by default
+  copy: src=hosts.deny dest=/etc/hosts.deny owner=root group=root mode=644 backup=yes
