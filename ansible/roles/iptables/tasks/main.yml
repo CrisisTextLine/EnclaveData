@@ -1,0 +1,6 @@
+- name: Put IP Tables Config in Place
+  copy: src=iptables dest=/etc/sysconfig/iptables owner=root group=root mode=644
+  notify: restart iptables
+
+- name: Enable IP Tables Service
+  service: name=iptables enabled=yes

@@ -13,6 +13,7 @@
    - nss-pam-ldapd
    - libsemanage-python
    - libselinux-python
+   - iptables-services
 
 - name: Setup SE-Linux Rule to Allow LDAP Auth
   seboolean: name={{ item }} state=no persistent=yes
