@@ -4,3 +4,10 @@
 
 - name: Enable IP Tables Service
   service: name=iptables enabled=yes
+
+- name: Put IP6 Tables Config in Place
+  copy: src=iptables dest=/etc/sysconfig/ip6tables owner=root group=root mode=644
+  notify: restart ip6tables
+
+- name: Enable IP6 Tables Service
+  service: name=ip6tables enabled=yes 
