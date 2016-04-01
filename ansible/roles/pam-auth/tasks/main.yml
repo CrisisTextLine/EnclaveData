@@ -1,0 +1,14 @@
+- name: Remove Password Auth
+  lineinfile: dest=/etc/pam.d/sshd line="auth       subtrack      password-auth" state=absent
+
+- name: Add Google Authenticator Line
+  lineinfile: dest=/etc/pam.d/sshd line="auth       sufficient      /usr/local/lib/security/pam_google_authenticator.so" state=present
+
+- name: Add Exception Rule for Ansible Users
+  lineinfile: dest=/etc/pam.d/sshd line="auth       sufficient      pam_listfile.so item=user sense=allow file=/etc/sshd/sshd.allow onerr=fail
+
+- name: Create SSHD Directory
+  file: path=/etc/sshd owner=root group=root mode=755 state=directory
+
+- name: Copy SSH User Exception file into place
+  copy: src=sshd.allow dest=/etc/sshd/sshd.allow owner=root group=root mode=644
