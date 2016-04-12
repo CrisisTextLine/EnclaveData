@@ -9,3 +9,7 @@
    - libvirt-client
    - virt-install
    - virt-viewer
+
+- name: Disable password access through SSH
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" state=present line="PermitRootLogin yes"
+  notify: restart sshd
