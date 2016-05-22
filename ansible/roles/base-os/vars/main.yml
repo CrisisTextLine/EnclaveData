@@ -1,7 +1,6 @@
 ---
 local_admins:
   - sheyd
-  # - cjcodes
-  #
+  - chris
 
 timezone: UTC
