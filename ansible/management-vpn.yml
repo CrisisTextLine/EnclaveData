@@ -1,0 +1,7 @@
+---
+- hosts: management-vpn
+  become: true
+  gather_facts: yes
+  roles:
+    - base-os
+    - update-all
