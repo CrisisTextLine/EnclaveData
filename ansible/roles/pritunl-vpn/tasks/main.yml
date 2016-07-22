@@ -1,0 +1,29 @@
+- name: Disable SE Linux
+  selinux: state=disabled
+
+- name: Put Pritunl Repo File in Place
+  copy: src=pritunl.repo dest=/etc/yum.repos.d/pritunl.repo owner=root group=root mode=644
+
+- name: Copy Pritunl GPG Key in Place
+  copy: src=pritunl.key dest=/var/tmp/pritunl.key owner=root group=root mode=644
+
+- name: Import Pritunl GPG Key
+  rpm_key: state=present key=/var/tmp/pritunl.key 
+
+- name: Install Pritunl VPN Server
+  yum: name={{ item }} state=present update_cache=yes
+  with_items:
+    - pritunl
+    - mongodb-server
+
+- name: Set Soft Nofile Limit
+  pam_limits: domain=* limit_type=soft limit_item=nofile value=64000
+
+- name: Set Hard Nofile Limit
+  pam_limits: domain=* limit_type=hard limit_item=nofile value=64000
+
+- name: Start and Enable Pritunl Services
+  service: name={{ item }} state=started enabled=yes
+  with_items:
+    - mongod
+    - pritunl
