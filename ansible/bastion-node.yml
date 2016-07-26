@@ -1,0 +1,14 @@
+---
+- hosts: bastion-host
+  become: true
+  gather_facts: yes
+  vars:
+    server_name: level-3-bastion
+  roles:
+    - base-os
+    - ansible
+    - hostname
+    - update-all
+  tasks:
+  - name: Install Git
+    yum: name=git state=present
