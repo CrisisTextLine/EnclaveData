@@ -1,0 +1,3 @@
+- name: Set Hostname
+  hostname: name={{ server_name }}
+  when: server_name is defined
