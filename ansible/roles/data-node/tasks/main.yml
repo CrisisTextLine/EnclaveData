@@ -1,0 +1,20 @@
+- name: Install SciPy Packages
+  yum: name={{ item }} state=present
+  with_items:
+    - numpy
+    - scipy
+    - python-matplotlib
+    - ipython
+    - python-pandas
+    - sympy
+    - python-nose
+    - atlas-devel
+
+- name: Install Pip
+  easy_install: name=pip state=present
+
+- name: Install NLTK
+  pip: name=nltk
+
+- name: Install SciKit-Learn
+  pip: name=scikit-learn
