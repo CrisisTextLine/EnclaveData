@@ -1,0 +1,8 @@
+---
+- hosts: client-vpn
+  become: true
+  gather_facts: yes
+  roles:
+    - base-os
+    - pritunl-vpn
+    - update-all
