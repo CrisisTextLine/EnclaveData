@@ -3,4 +3,7 @@ local_admins:
   - sheyd
   - chris
 
+data_users:
+  - nitya
+
 timezone: UTC
