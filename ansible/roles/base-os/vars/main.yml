@@ -5,5 +5,6 @@ local_admins:
 
 data_users:
   - nitya
+  - bob
 
 timezone: UTC
