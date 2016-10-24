@@ -33,6 +33,18 @@
   copy: src={{ item }}-id_rsa.pub dest=/home/{{ item }}/.ssh/authorized_keys owner={{ item }} group={{ item }} mode=750
   with_items: "{{local_admins}}"
 
+- name: Add Local Data Users
+  user: name={{ item }} shell=/bin/bash
+  with_items: "{{data_users}}"
+
+- name: Create SSH Directory
+  file: dest=/home/{{ item }}/.ssh owner={{ item }} group={{ item }} mode=750 state=directory
+  with_items: "{{data_users}}"
+
+- name: Setup Public Keys
+  copy: src={{ item }}-id_rsa.pub dest=/home/{{ item }}/.ssh/authorized_keys owner={{ item }} group={{ item }} mode=750
+  with_items: "{{data_users}}"
+
 - name: Copy ntp.conf file into place
   copy: src=ntp.conf dest=/etc/ntp.conf owner=root group=root mode=644 backup=yes
   notify: restart ntpd
