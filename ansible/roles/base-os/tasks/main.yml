@@ -54,7 +54,6 @@
   register: timestat
 
 - name: Set Timezone to UTC
-  #debug: var=timestat
   command: timedatectl set-timezone "{{ timezone }}"
   when: timestat.stat.lnk_source != '/usr/share/zoneinfo/UTC'
   notify: restart ntpd
@@ -67,3 +66,7 @@
 
 - name: Copy Hosts Deny File Into Place to Disallow all services by default
   copy: src=hosts.deny dest=/etc/hosts.deny owner=root group=root mode=644 backup=yes
+
+- name: Disable TCP Forwarding
+  lineinfile: dest=/etc/ssh/sshd_config line="AllowTcpForwarding no"
+  notify: restart sshd
