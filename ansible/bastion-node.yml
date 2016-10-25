@@ -20,12 +20,10 @@
 
   - name: Allow TCP Proxy for Admin Users
     blockinfile:
-    dest: /etc/ssh/sshd_config
-    block: |
-      Match User sheyd
-         AllowTcpForwarding yes
-      Match User chris
-         AllowTcpForwarding yes
-
-  - name: Restart SSH Service
-    service: name=sshd state=restarted
+      dest: /etc/ssh/sshd_config
+      block: |
+        Match User sheyd
+           AllowTcpForwarding yes
+        Match User chris
+           AllowTcpForwarding yes
+    notify: restart sshd

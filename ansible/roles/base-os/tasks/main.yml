@@ -29,8 +29,10 @@
   file: dest=/home/{{ item }}/.ssh owner={{ item }} group={{ item }} mode=750 state=directory
   with_items: "{{local_admins}}"
 
-- name: Setup Public Keys
-  copy: src={{ item }}-id_rsa.pub dest=/home/{{ item }}/.ssh/authorized_keys owner={{ item }} group={{ item }} mode=750
+- name: Setup Local Admin Public Keys
+  authorized_key:
+    user: "{{ item }}"
+    key: "{{ lookup('file', './roles/base-os/files/' + item + '-id_rsa.pub') }}"
   with_items: "{{local_admins}}"
 
 - name: Add Local Data Users
@@ -41,8 +43,10 @@
   file: dest=/home/{{ item }}/.ssh owner={{ item }} group={{ item }} mode=750 state=directory
   with_items: "{{data_users}}"
 
-- name: Setup Public Keys
-  copy: src={{ item }}-id_rsa.pub dest=/home/{{ item }}/.ssh/authorized_keys owner={{ item }} group={{ item }} mode=750
+- name: Setup Data Users Public Keys
+  authorized_key:
+    user: "{{ item }}"
+    key: "{{ lookup('file', './roles/base-os/files/' + item + '-id_rsa.pub') }}"
   with_items: "{{data_users}}"
 
 - name: Copy ntp.conf file into place
