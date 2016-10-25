@@ -12,3 +12,20 @@
   tasks:
   - name: Install Git
     yum: name=git state=present
+
+  - name: Add Chris Pooh Key
+    authorized_key:
+      user: chris
+      key: "{{ lookup('file', './roles/base-os/files/chris-pooh-id_rsa.pub') }}"
+
+  - name: Allow TCP Proxy for Admin Users
+    blockinfile:
+    dest: /etc/ssh/sshd_config
+    block: |
+      Match User sheyd
+         AllowTcpForwarding yes
+      Match User chris
+         AllowTcpForwarding yes
+
+  - name: Restart SSH Service
+    service: name=sshd state=restarted
