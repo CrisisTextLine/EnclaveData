@@ -1,0 +1,14 @@
+---
+- hosts: ut-austin-data-node
+  become: true
+  gather_facts: yes
+  vars:
+    server_name: ut-austin-data-node
+  roles:
+    - base-os
+    - data-node
+    - hostname
+    - update-all
+  tasks:
+  - name: Install Git
+    yum: name=git state=present
