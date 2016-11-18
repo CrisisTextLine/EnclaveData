@@ -1,0 +1,16 @@
+- name: Add Local Researcher
+  user: name={{ item }} shell=/bin/bash
+  with_items: "{{researcher}}"
+  when: researcher is defined
+
+- name: Create SSH Directory
+  file: dest=/home/{{ item }}/.ssh owner={{ item }} group={{ item }} mode=750 state=directory
+  with_items: "{{researcher}}"
+  when: researcher is defined
+
+- name: Setup Researcher Public Keys
+  authorized_key:
+    user: "{{ item }}"
+    key: "{{ lookup('file', './roles/add-researcher/files/' + item + '-id_rsa.pub') }}"
+  with_items: "{{researcher}}"
+  when: researcher is defined
