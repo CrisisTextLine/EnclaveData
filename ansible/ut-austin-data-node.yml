@@ -4,11 +4,12 @@
   gather_facts: yes
   vars:
     server_name: ut-austin-data-node
+    researcher: hannah
   roles:
     - base-os
     - data-node
     - hostname
-    - update-all
+    - add-researcher
   tasks:
   - name: Install Git
     yum: name=git state=present
