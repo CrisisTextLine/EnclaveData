@@ -30,3 +30,5 @@
 - name: Uninstall Pre-reqs for PostgreSQL Python Connector
   yum: name="@Development Tools" state=removed
 
+- name: Install R
+  yum: name="R" state=present

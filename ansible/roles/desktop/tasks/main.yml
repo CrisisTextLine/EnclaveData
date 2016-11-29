@@ -1,0 +1,52 @@
+
+- name: Install MATE
+  yum: name="@^MATE Desktop" state=present
+
+- name: Install desktop tools
+  yum: name={{ item }} state=present
+  with_items:
+    - libreoffice
+
+- name: Copy the desktop file
+  template:
+    src: desktop.j2
+    dest: "/etc/sysconfig/desktop"
+
+- name: Install TigerVNC
+  yum: name={{ item }} state=present
+  with_items:
+   - tigervnc-server
+
+- name: Copy default password file
+  template:
+    src: password.j2
+    dest: /tmp/file
+
+- name: Set vnc password
+  shell: "sudo -u {{ item.name }} -i vncserver < /tmp/file"
+  with_items: "{{ vnc_users }}"
+
+- name: Register a vncserver service
+  template:
+    src: vncserver.j2
+    dest: "/etc/systemd/system/vncserver-{{ item.name }}@:{{ item.xdisplay }}.service"
+    owner: root
+    group: root
+  with_items: "{{ vnc_users }}"
+  register: vnc_service
+
+- name: Add vncserver to boot
+  command: "systemctl enable vncserver-{{ item.name }}@:{{ item.xdisplay }}.service"
+  with_items: "{{ vnc_users }}"
+
+- name: Restart VNC service
+  command: "systemctl restart vncserver-{{ item.name }}@:{{ item.xdisplay }}.service"
+  with_items: "{{ vnc_users }}"
+
+- name: Copy rstudio RPM
+  copy:
+    src: rstudio.rpm
+    dest: /tmp/rstudio.rpm
+
+- name: Install rstudio
+  yum: name=/tmp/rstudio.rpm state=present

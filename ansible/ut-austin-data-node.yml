@@ -5,11 +5,16 @@
   vars:
     server_name: ut-austin-data-node
     researcher: hannah
+    vnc_password: "{{ lookup('password', 'credentials/utaustin length=15') }}"
+    vnc_users:
+      - name: hannah
+        xdisplay: 1
   roles:
     - base-os
     - data-node
     - hostname
     - add-researcher
+    - desktop
   tasks:
   - name: Install Git
     yum: name=git state=present

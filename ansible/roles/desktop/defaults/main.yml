@@ -1,0 +1,5 @@
+---
+vnc_password: Kickba11
+vnc_users:
+  - name: chris
+    xdisplay: 1

@@ -1,0 +1,16 @@
+#{{ ansible_managed }}
+
+[Unit]
+Description=Remote desktop service (VNC)
+After=syslog.target network.target
+
+[Service]
+Type=forking
+# Clean any existing files in /tmp/.X11-unix environment
+ExecStartPre=/usr/sbin/runuser -l {{item.name}} -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
+ExecStart=/usr/sbin/runuser -l {{item.name}} -c "/usr/bin/vncserver %i"
+PIDFile=/home/{{item.name}}/.vnc/%H%i.pid
+ExecStop=/usr/sbin/runuser -l {{item.name}} -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
+
+[Install]
+WantedBy=multi-user.target
