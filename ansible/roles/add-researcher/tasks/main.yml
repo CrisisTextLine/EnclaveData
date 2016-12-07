@@ -1,5 +1,8 @@
 - name: Add Local Researcher
-  user: name={{ item }} shell=/bin/bash
+  user:
+    name: "{{ item }}"
+    shell: "/bin/bash"
+    password: "{{ vnc_password }}"
   with_items: "{{researcher}}"
   when: researcher is defined
 

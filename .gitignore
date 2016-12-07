@@ -1,3 +1,5 @@
 ansible/*.retry
 ansible/credentials
+ansible/ansible.cfg
+ansible/hosts
 .DS_Store

@@ -32,3 +32,6 @@
 
 - name: Install R
   yum: name="R" state=present
+
+- name: Install ipython
+  pip: name=ipython
