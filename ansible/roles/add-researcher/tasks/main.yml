@@ -2,7 +2,7 @@
   user:
     name: "{{ item }}"
     shell: "/bin/bash"
-    password: "{{ vnc_password }}"
+    password: "{{ user_password }}"
   with_items: "{{researcher}}"
   when: researcher is defined
 
