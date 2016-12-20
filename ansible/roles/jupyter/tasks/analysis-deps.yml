@@ -30,7 +30,6 @@
     - fiona
     - descartes
     - networkx
-    - pymc
     - gensim
     - lifelines
     - YURL
