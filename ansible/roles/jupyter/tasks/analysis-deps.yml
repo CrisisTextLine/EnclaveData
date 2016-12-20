@@ -1,21 +1,21 @@
 ---
-- name: install apt deps
-  apt:
+- name: install deps
+  yum:
     name: "{{item}}"
     state: present
   with_items:
-    - python-dev
-    - libreadline-dev
+    - python-devel
+    - libreadline-devel
     - pandoc
     - python-psycopg2
     - python-pandas
     - python-mpltoolkits.basemap
-    - libsqlite3-dev
-    - libproj-dev
-    - libgdal-dev
+    - libsqlite3-devel
+    - libproj-devel
+    - libgdal-devel
     - gfortran
-    - libxml2-dev
-    - libxslt1-dev
+    - libxml2-devel
+    - libxslt1-devel
 
 - name: install pip ipython and deps
   pip:

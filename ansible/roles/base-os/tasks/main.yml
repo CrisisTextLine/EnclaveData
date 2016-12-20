@@ -11,6 +11,9 @@
    - libsemanage-python
    - libselinux-python
 
+- name: Clear yum cache
+  command: clean all
+
 - name: Update Cache and All Packages
   yum: name=* state=latest
 
