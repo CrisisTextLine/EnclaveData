@@ -36,13 +36,4 @@
     dest: /home/{{researcher}}/.ipython/profile_default/ipython_notebook_config.py
   notify: restart ipython-notebook
 
-- name: Configure upstart script
-  template:
-    src: upstart.conf.j2
-    dest: /etc/init/ipython-notebook.conf
-  notify: restart ipython-notebook
-
 - include: nbextensions.yml
-
-- name: Start application
-  service: name=ipython-notebook state=started
