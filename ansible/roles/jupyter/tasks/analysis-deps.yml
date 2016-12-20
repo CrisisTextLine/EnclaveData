@@ -9,7 +9,6 @@
     - pandoc
     - python-psycopg2
     - python-pandas
-    - python-mpltoolkits.basemap
     - libsqlite3-devel
     - libproj-devel
     - libgdal-devel
