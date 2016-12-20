@@ -9,12 +9,8 @@
     - pandoc
     - python-psycopg2
     - python-pandas
-    - libsqlite3-devel
-    - libproj-devel
-    - libgdal-devel
+    - sqlite-devel
     - gfortran
-    - libxml2-devel
-    - libxslt1-devel
 
 - name: install pip ipython and deps
   pip:
