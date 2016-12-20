@@ -17,6 +17,7 @@
     state: present
   with_items:
     - ipython
+    - jupyter
     - pyzmq
     - jinja2
     - tornado
