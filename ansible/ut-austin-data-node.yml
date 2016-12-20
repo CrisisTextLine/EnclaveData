@@ -16,6 +16,7 @@
     - hostname
     - add-researcher
     - desktop
+    - jupyter
   tasks:
   - name: Install Git
     yum: name=git state=present

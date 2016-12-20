@@ -1,0 +1,12 @@
+description "ipython"
+
+start on runlevel [2345]
+stop on shutdown
+
+respawn
+respawn limit 10 15
+
+setuid {{ researcher }}
+setgid {{ researcher }}
+
+exec ipython notebook --no-browser
