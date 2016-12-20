@@ -30,7 +30,6 @@
     - fiona
     - descartes
     - networkx
-    - gensim
     - lifelines
     - YURL
     - lxml
