@@ -1,6 +1,6 @@
 ---
 - name: install python setup tools (easy_install)
-  apt:
+  yum:
     pkg: python-setuptools
     state: present
 
