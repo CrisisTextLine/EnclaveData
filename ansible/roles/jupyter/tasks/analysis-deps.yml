@@ -5,7 +5,7 @@
     state: present
   with_items:
     - python-devel
-    - libreadline-devel
+    - readline-devel
     - pandoc
     - python-psycopg2
     - python-pandas
