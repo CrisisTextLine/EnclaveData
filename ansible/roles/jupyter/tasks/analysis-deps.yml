@@ -10,7 +10,6 @@
     - python-psycopg2
     - python-pandas
     - sqlite-devel
-    - gfortran
 
 - name: install pip ipython and deps
   pip:
