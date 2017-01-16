@@ -6,6 +6,7 @@
   yum: name={{ item }} state=present
   with_items:
     - libreoffice
+    - libreoffice-postgresql
 
 - name: Copy the desktop file
   template:
@@ -23,7 +24,7 @@
     dest: /tmp/file
 
 - name: Set vnc password
-  shell: "sudo -u {{ item.name }} -i vncserver < /tmp/file"
+  shell: "sudo -u {{ item.name }} -i vncpasswd < /tmp/file"
   with_items: "{{ vnc_users }}"
 
 - name: Register a vncserver service
@@ -39,9 +40,11 @@
   command: "systemctl enable vncserver-{{ item.name }}@:{{ item.xdisplay }}.service"
   with_items: "{{ vnc_users }}"
 
-- name: Restart VNC service
-  command: "systemctl restart vncserver-{{ item.name }}@:{{ item.xdisplay }}.service"
-  with_items: "{{ vnc_users }}"
+- firewalld:
+  zone: public
+  port: 5900/tcp
+  permanent: true
+  state: enabled
 
 - name: Copy rstudio RPM
   copy:
