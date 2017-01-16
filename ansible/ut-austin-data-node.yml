@@ -9,9 +9,8 @@
     vnc_password: "{{ lookup('password', 'credentials/utaustin length=15') }}"
     vnc_users:
       - name: hannah
-        xdisplay: 1
+        xdisplay: 0
   roles:
-    - base-os
     - data-node
     - hostname
     - add-researcher

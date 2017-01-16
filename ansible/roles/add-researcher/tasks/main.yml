@@ -11,9 +11,9 @@
   with_items: "{{researcher}}"
   when: researcher is defined
 
-- name: Setup Researcher Public Keys
-  authorized_key:
-    user: "{{ item }}"
-    key: "{{ lookup('file', './roles/add-researcher/files/' + item + '-id_rsa.pub') }}"
-  with_items: "{{researcher}}"
-  when: researcher is defined
+#- name: Setup Researcher Public Keys
+#  authorized_key:
+#    user: "{{ item }}"
+#    key: "{{ lookup('file', './roles/add-researcher/files/' + item + '-id_rsa.pub') }}"
+#  with_items: "{{researcher}}"
+#  when: researcher is defined

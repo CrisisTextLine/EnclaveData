@@ -34,5 +34,5 @@
     group: "{{researcher}}"
     src: ipynb_conf.py.j2
     dest: /home/{{researcher}}/.ipython/profile_default/ipython_notebook_config.py
-  notify: restart ipython-notebook
+#  notify: restart ipython-notebook
 
