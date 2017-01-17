@@ -40,11 +40,12 @@
   command: "systemctl enable vncserver-{{ item.name }}@:{{ item.xdisplay }}.service"
   with_items: "{{ vnc_users }}"
 
-- firewalld:
-  zone: public
-  port: 5900/tcp
-  permanent: true
-  state: enabled
+- name: "Open port 5900"
+  firewalld:
+    zone: public
+    port: 5900/tcp
+    permanent: true
+    state: enabled
 
 - name: Copy rstudio RPM
   copy:
