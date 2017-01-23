@@ -4,11 +4,20 @@
   gather_facts: yes
   vars:
     server_name: kempe-data-node
+    researcher: laura
+    user_password: "{{ lookup('password', 'credentials/kempe length=15 encrypt=sha512_crypt') }}"
+    vnc_password: "{{ lookup('password', 'credentials/kempe length=15') }}"
+    vnc_users:
+      - name: laura
+        xdisplay: 0
   roles:
     - base-os
     - data-node
     - hostname
     - update-all
+    - add-researcher
+    - desktop
+    - jupyter
   tasks:
   - name: Install Git
     yum: name=git state=present
