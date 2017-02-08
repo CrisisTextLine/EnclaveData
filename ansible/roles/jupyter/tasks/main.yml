@@ -1,4 +1,8 @@
 ---
+
+- name: fix pip
+  shell: "sed -i 's/MARKER_EXPR()/MARKER_EXPR/g' /usr/lib/python2.7/site-packages/packaging/requirements.py"
+
 - include: analysis-deps.yml
 
 - name: create notebooks directory
