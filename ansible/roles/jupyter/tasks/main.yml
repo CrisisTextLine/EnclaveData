@@ -10,7 +10,7 @@
     name: pip
 
 - name: force upgrade pip
-  shell: "python -m pip install --upgrade --force pip"
+  shell: "/bin/python2 -m pip install --upgrade --force pip"
 
 - include: analysis-deps.yml
 
