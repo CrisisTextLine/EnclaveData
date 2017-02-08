@@ -4,11 +4,11 @@
   gather_facts: yes
   vars:
     server_name: virginia-tech-data-node
-    researcher: ryan
+    researcher: stephen
     user_password: "{{ lookup('password', 'credentials/virginia-tech length=15 encrypt=sha512_crypt') }}"
     vnc_password: "{{ lookup('password', 'credentials/virginia-tech length=15') }}"
     vnc_users:
-      - name: ryan
+      - name: stephen
         xdisplay: 0
   roles:
     - base-os
