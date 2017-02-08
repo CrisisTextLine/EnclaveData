@@ -11,6 +11,9 @@
     - python-pandas
     - sqlite-devel
 
+- name: fix pip after dep install
+  shell: "sed -i 's/MARKER_EXPR()/MARKER_EXPR/g' /usr/lib/python2.7/site-packages/packaging/requirements.py"
+
 - name: install pip ipython and deps
   pip:
     name: "{{item}}"
