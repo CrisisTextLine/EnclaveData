@@ -1,0 +1,23 @@
+---
+- hosts: basel-data-node
+  become: true
+  gather_facts: yes
+  vars:
+    server_name: basel-data-node
+    researcher: miriam
+    user_password: "{{ lookup('password', 'credentials/basel length=15 encrypt=sha512_crypt') }}"
+    vnc_password: "{{ lookup('password', 'credentials/basel length=15') }}"
+    vnc_users:
+      - name: miriam
+        xdisplay: 0
+  roles:
+    - base-os
+    - data-node
+    - hostname
+    - update-all
+    - add-researcher
+    - desktop
+    - jupyter
+  tasks:
+  - name: Install Git
+    yum: name=git state=present

@@ -1,0 +1,23 @@
+---
+- hosts: montana-data-node
+  become: true
+  gather_facts: yes
+  vars:
+    server_name: montana-data-node
+    researcher: ryan
+    user_password: "{{ lookup('password', 'credentials/montana length=15 encrypt=sha512_crypt') }}"
+    vnc_password: "{{ lookup('password', 'credentials/montana length=15') }}"
+    vnc_users:
+      - name: ryan
+        xdisplay: 0
+  roles:
+    - base-os
+    - data-node
+    - hostname
+    - update-all
+    - add-researcher
+    - desktop
+    - jupyter
+  tasks:
+  - name: Install Git
+    yum: name=git state=present
