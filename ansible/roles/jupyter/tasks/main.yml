@@ -1,17 +1,4 @@
 ---
-- name: install python setup tools (easy_install)
-  yum:
-    pkg: python-setuptools
-    state: present
-
-- name: install pip
-  sudo: yes
-  easy_install:
-    name: pip
-
-- name: force upgrade pip
-  shell: "/bin/pip2 install --upgrade --force pip"
-
 - include: analysis-deps.yml
 
 - name: create notebooks directory
