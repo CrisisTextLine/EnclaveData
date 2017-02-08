@@ -40,6 +40,11 @@
   command: "systemctl enable vncserver-{{ item.name }}@:{{ item.xdisplay }}.service"
   with_items: "{{ vnc_users }}"
 
+- name: Make sure firewall is running
+  service:
+    name: firewalld
+    state: started
+
 - name: "Open port 5900"
   firewalld:
     zone: public
