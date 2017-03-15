@@ -5,24 +5,27 @@
 - name: create notebooks directory
   file:
     state: directory
-    dest: "/home/{{researcher}}/notebooks"
-    owner: "{{researcher}}"
-    group: "{{researcher}}"
+    dest: /home/{{ item.name }}/notebooks
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  with_items: "{{ researchers }}"
 
 - name: create default notebook profile
   sudo: yes
   file:
-    owner: "{{researcher}}"
-    group: "{{researcher}}"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
     state: directory
     recurse: yes
-    dest: /home/{{researcher}}/.ipython/profile_default
+    dest: /home/{{ item.name }}/.ipython/profile_default
+  with_items: "{{ researchers }}"
 
 - name: configure default notebook
   sudo: yes
   template:
-    owner: "{{researcher}}"
-    group: "{{researcher}}"
+    owner: "{{item.name}}"
+    group: "{{item.name}}"
     src: ipynb_conf.py.j2
-    dest: /home/{{researcher}}/.ipython/profile_default/ipython_notebook_config.py
+    dest: /home/{{item.name}}/.ipython/profile_default/ipython_notebook_config.py
+  with_items: "{{ researchers }}"
 #  notify: restart ipython-notebook

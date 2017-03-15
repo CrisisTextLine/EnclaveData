@@ -9,23 +9,27 @@
   file:
     state: directory
     recurse: yes
-    dest: "/home/{{researcher}}/.ipython/{{item}}"
-    owner: "{{researcher}}"
-    group: "{{researcher}}"
-  with_items:
-    - nbextensions
-    - profile_default/static/custom
-    - nbextensions/usability
+    dest: "/home/{{ item[0].name }}/.ipython/{{ item[1] }}"
+    owner: "{{ item[0].name }}"
+    group: "{{ item[0].name }}"
+  with_nested:
+    - researchers
+    -
+      - nbextensions
+      - profile_default/static/custom
+      - nbextensions/usability
 
 - name: expand nbextension zip
   unarchive:
     copy: no
-    creates: /home/{{researcher}}/.ipython/nbextensions/{{item.name}}.js
+    creates: /home/{{ item[0].name }}/.ipython/nbextensions/{{ item[1].name }}.js
     src: /tmp/{{item.name}}.zip
-    dest: /home/{{researcher}}/.ipython/nbextensions
-    owner: "{{researcher}}"
-    group: "{{researcher}}"
-  with_items: nbextension_zips
+    dest: /home/{{ item[0].name }}/.ipython/nbextensions
+    owner: "{{ item[0].name }}"
+    group: "{{ item[0].name }}"
+  with_nested:
+    - researchers
+    - nbextension_zips
 
 - name: get ipython-contrib nbextensions
   get_url:
@@ -33,25 +37,29 @@
     dest: /tmp/contrib_ext.zip
 
 - name: expand ipython-contrib nbextensions
+  with_items: researchers
   unarchive:
     copy: no
     src: /tmp/contrib_ext.zip
-    dest: /home/{{researcher}}/
-    owner: "{{researcher}}"
-    group: "{{researcher}}"
+    dest: /home/{{ item.name }}/
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
 
 - name: link ipython-contrib nbextensions
   file:
     state: link
-    src: /home/{{researcher}}/IPython-notebook-extensions-3.x/{{item | dirname}}/
-    dest: /home/{{researcher}}/.ipython/nbextensions/{{item | dirname}}
-    owner: "{{researcher}}"
-    group: "{{researcher}}"
-  with_items: ipython_contrib_extensions
+    src: /home/{{ item[0].name }}/IPython-notebook-extensions-3.x/{{ item[1] | dirname }}/
+    dest: /home/{{ item[0].name }}/.ipython/nbextensions/{{ item[1] | dirname }}
+    owner: "{{ item[0].name }}"
+    group: "{{ item[0].name }}"
+  with_nested:
+    - researchers
+    - ipython_contrib_extensions
 
 - name: install custom.js to load nbextensions
+  with_items: researchers
   template:
     src: custom.js.j2
-    dest: "/home/{{researcher}}/.ipython/profile_default/static/custom/custom.js"
-    owner: "{{researcher}}"
-    group: "{{researcher}}"
+    dest: "/home/{{ item.name }}/.ipython/profile_default/static/custom/custom.js"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
