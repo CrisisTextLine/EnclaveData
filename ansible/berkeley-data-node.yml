@@ -4,11 +4,10 @@
   gather_facts: yes
   vars:
     server_name: berkeley-data-node
-    researcher: adrian
-    user_password: "{{ lookup('password', 'credentials/berkeley length=15 encrypt=sha512_crypt') }}"
-    vnc_password: "{{ lookup('password', 'credentials/berkeley length=15') }}"
-    vnc_users:
-      - name: adrian
+    researchers:
+      - name: "adrian"
+        user_password: "{{ lookup('password', 'credentials/berkeley.adrian length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/berkeley.adrian length=15') }}"
         xdisplay: 0
   roles:
     - base-os

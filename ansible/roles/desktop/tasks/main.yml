@@ -35,14 +35,14 @@
 - name: Register a vncserver service
   template:
     src: vncserver.j2
-    dest: "/etc/systemd/system/vncserver-{{ item.name }}@{{ item.xdisplay }}.service"
+    dest: "/etc/systemd/system/vncserver-{{ item.name }}@:{{ item.xdisplay }}.service"
     owner: root
     group: root
   with_items: "{{ researchers }}"
   register: vnc_service
 
 - name: Add vncserver to boot
-  command: "systemctl enable vncserver-{{ item.name }}@{{ item.xdisplay }}.service"
+  command: "systemctl enable vncserver-{{ item.name }}@:{{ item.xdisplay }}.service"
   with_items: "{{ researchers }}"
 
 - name: Make sure firewall is running

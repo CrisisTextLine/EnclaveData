@@ -4,11 +4,10 @@
   gather_facts: yes
   vars:
     server_name: stanford-cs-data-node
-    researcher: jure
-    user_password: "{{ lookup('password', 'credentials/stanford-cs length=15 encrypt=sha512_crypt') }}"
-    vnc_password: "{{ lookup('password', 'credentials/stanford-cs length=15') }}"
-    vnc_users:
-      - name: jure
+    researchers:
+      - name: "jure"
+        user_password: "{{ lookup('password', 'credentials/stanford-cs.jure length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/stanford-cs.jure length=15') }}"
         xdisplay: 0
   roles:
     - base-os

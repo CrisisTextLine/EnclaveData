@@ -4,11 +4,10 @@
   gather_facts: yes
   vars:
     server_name: basel-data-node
-    researcher: miriam
-    user_password: "{{ lookup('password', 'credentials/basel length=15 encrypt=sha512_crypt') }}"
-    vnc_password: "{{ lookup('password', 'credentials/basel length=15') }}"
-    vnc_users:
-      - name: miriam
+    researchers:
+      - name: "miriam"
+        user_password: "{{ lookup('password', 'credentials/basel.miriam length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/basel.miriam length=15') }}"
         xdisplay: 0
   roles:
     - base-os

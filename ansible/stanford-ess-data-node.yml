@@ -4,11 +4,10 @@
   gather_facts: yes
   vars:
     server_name: stanford-ess-data-node
-    researcher: marshall
-    user_password: "{{ lookup('password', 'credentials/stanford-ess length=15 encrypt=sha512_crypt') }}"
-    vnc_password: "{{ lookup('password', 'credentials/stanford-ess length=15') }}"
-    vnc_users:
-      - name: marshall
+    researchers:
+      - name: "marshall"
+        user_password: "{{ lookup('password', 'credentials/stanford-ess.marshall length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/stanford-ess.marshall length=15') }}"
         xdisplay: 0
   roles:
     - base-os

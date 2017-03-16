@@ -4,11 +4,10 @@
   gather_facts: yes
   vars:
     server_name: montana-data-node
-    researcher: ryan
-    user_password: "{{ lookup('password', 'credentials/montana length=15 encrypt=sha512_crypt') }}"
-    vnc_password: "{{ lookup('password', 'credentials/montana length=15') }}"
-    vnc_users:
-      - name: ryan
+    researchers:
+      - name: "ryan"
+        user_password: "{{ lookup('password', 'credentials/montana.ryan length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/montana.ryan length=15') }}"
         xdisplay: 0
   roles:
     - base-os

@@ -4,11 +4,10 @@
   gather_facts: yes
   vars:
     server_name: cornell-data-node
-    researcher: cristian
-    user_password: "{{ lookup('password', 'credentials/cornell length=15 encrypt=sha512_crypt') }}"
-    vnc_password: "{{ lookup('password', 'credentials/cornell length=15') }}"
-    vnc_users:
-      - name: cristian
+    researchers:
+      - name: "cristian"
+        user_password: "{{ lookup('password', 'credentials/cornell.cristian length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/cornell.cristian length=15') }}"
         xdisplay: 0
   roles:
     - base-os
