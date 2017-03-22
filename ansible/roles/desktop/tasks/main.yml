@@ -41,6 +41,12 @@
   with_items: "{{ researchers }}"
   register: vnc_service
 
+- name: Restart mate-session if it's not running
+  cron:
+    name: "Restart vnc if !gnome-session for {{ item.name }}"
+    job: "if ! pgrep -u {{ item.name }} -x 'mate-session' > /dev/null; then systemctl restart vncserver-{{ item.name }}\\@\\:{{ item.xdisplay }}; fi"
+  with_items: "{{ researchers }}"
+
 - name: Add vncserver to boot
   command: "systemctl enable vncserver-{{ item.name }}@:{{ item.xdisplay }}.service"
   with_items: "{{ researchers }}"
