@@ -38,6 +38,26 @@
   with_items:
     - rjson
     - RPostgreSQL
+    - data.table
+    - ggplot2
+    - lfe
+    - lubridate
+    - zoo
+    - ggthemes
+    - RColorBrewer
+    - scales
+    - stringi
+    - sp
+    - maps
+    - maptools
+    - broom
+    - raster
+    - geosphere
+    - rgdal
+    - rgeos
+    - readr
+    - dplyr
+    - GISTools
 
 - name: Install ipython
   pip: name=ipython
