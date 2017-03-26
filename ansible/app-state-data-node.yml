@@ -9,6 +9,18 @@
         user_password: "{{ lookup('password', 'credentials/app-state.jennifer length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/app-state.jennifer length=15') }}"
         xdisplay: 0
+      - name: "maggie"
+        user_password: "{{ lookup('password', 'credentials/app-state.maggie length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/app-state.maggie length=15') }}"
+        xdisplay: 1
+      - name: "will"
+        user_password: "{{ lookup('password', 'credentials/app-state.will length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/app-state.will length=15') }}"
+        xdisplay: 2
+      - name: "laura"
+        user_password: "{{ lookup('password', 'credentials/app-state.laura length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/app-state.laura length=15') }}"
+        xdisplay: 3
   roles:
     - base-os
     - data-node

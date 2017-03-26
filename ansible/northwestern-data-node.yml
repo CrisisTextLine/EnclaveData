@@ -9,6 +9,10 @@
         user_password: "{{ lookup('password', 'credentials/northwestern.james length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/northwestern.james length=15') }}"
         xdisplay: 0
+      - name: "chenny"
+        user_password: "{{ lookup('password', 'credentials/northwestern.chenny length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/northwestern.chenny length=15') }}"
+        xdisplay: 1
   roles:
     - base-os
     - data-node

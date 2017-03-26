@@ -9,6 +9,10 @@
         user_password: "{{ lookup('password', 'credentials/basel.miriam length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/basel.miriam length=15') }}"
         xdisplay: 0
+      - name: "daria"
+        user_password: "{{ lookup('password', 'credentials/basel.daria length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/basel.daria length=15') }}"
+        xdisplay: 1
   roles:
     - base-os
     - data-node
