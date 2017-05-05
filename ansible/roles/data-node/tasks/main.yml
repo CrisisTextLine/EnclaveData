@@ -74,7 +74,7 @@
 
 - name: Download GloVe vectors
   get_url:
-    url: {{ item }}
+    url: "{{ item }}"
     dest: /opt/glove
     mode: 0777
   with_items:
