@@ -15,11 +15,21 @@
 - name: Install Pip
   easy_install: name=pip state=present
 
-- name: Install NLTK
-  pip: name=nltk
-
-- name: Install SciKit-Learn
-  pip: name=scikit-learn
+- name: Install Python packages
+  pip: name={{ item }}
+  with_items:
+    - nltk
+    - scikit-learn
+    - scipy
+    - numpy
+    - gensim
+    - pandas
+    - maplotlib
+    - seaborn
+    - statsmodels
+    - spacy
+    - tensorflow
+    - ipython
 
 - name: Install Pre-reqs for PostgreSQL Python Connector
   yum: name="@Development Tools" state=present
@@ -59,5 +69,16 @@
     - dplyr
     - GISTools
 
-- name: Install ipython
-  pip: name=ipython
+- name: Create GloVe directory
+  file: path=/opt/glove state=directory mode=0777
+
+- name: Download GloVe vectors
+  get_url:
+    url: {{ item }}
+    dest: /opt/glove
+    mode: 0777
+  with_items:
+    - http://nlp.stanford.edu/data/glove.6B.zip
+    - http://nlp.stanford.edu/data/glove.42B.300d.zip
+    - http://nlp.stanford.edu/data/glove.840B.300d.zip
+    - http://nlp.stanford.edu/data/glove.twitter.27B.zip
