@@ -75,7 +75,7 @@
 - name: Download GloVe vectors
   get_url:
     url: "{{ item.url }}"
-    dest: {{ item.dest }}
+    dest: "{{ item.dest }}"
     mode: 0777
   with_items:
     - { url: "https://nlp.stanford.edu/software/GloVe-1.2.zip", dest: "/opt/glove/source.zip" }
