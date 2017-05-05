@@ -24,7 +24,7 @@
     - numpy
     - gensim
     - pandas
-    - maplotlib
+    - matplotlib
     - seaborn
     - statsmodels
     - spacy
