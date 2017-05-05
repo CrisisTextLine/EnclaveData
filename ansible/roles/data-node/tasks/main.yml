@@ -78,6 +78,7 @@
     dest: /opt/glove
     mode: 0777
   with_items:
+    - https://nlp.stanford.edu/software/GloVe-1.2.zip
     - http://nlp.stanford.edu/data/glove.6B.zip
     - http://nlp.stanford.edu/data/glove.42B.300d.zip
     - http://nlp.stanford.edu/data/glove.840B.300d.zip
