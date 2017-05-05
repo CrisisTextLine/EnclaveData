@@ -74,12 +74,12 @@
 
 - name: Download GloVe vectors
   get_url:
-    url: "{{ item.url }}"
-    dest: "{{ item.dest }}"
+    url: {{ item.url }}
+    dest: {{ item.dest }}
     mode: 0777
   with_items:
-    - { url: https://nlp.stanford.edu/software/GloVe-1.2.zip, dest: /opt/glove/source.zip }
-    - { url: http://nlp.stanford.edu/data/glove.6B.zip, dest: /opt/glove/glove.6B.zip }
-    - { url: http://nlp.stanford.edu/data/glove.42B.300d.zip, dest: /opt/glove/glove.42B.300d.zip }
-    - { url: http://nlp.stanford.edu/data/glove.840B.300d.zip, dest: /opt/glove/glove.840B.300d.zip }
-    - { url: http://nlp.stanford.edu/data/glove.twitter.27B.zip, dest: /opt/glove/glove.twitter.27B.zip }
+    - { url: "https://nlp.stanford.edu/software/GloVe-1.2.zip", dest: "/opt/glove/source.zip" }
+    - { url: "http://nlp.stanford.edu/data/glove.6B.zip", dest: "/opt/glove/glove.6B.zip" }
+    - { url: "http://nlp.stanford.edu/data/glove.42B.300d.zip", dest: "/opt/glove/glove.42B.300d.zip" }
+    - { url: "http://nlp.stanford.edu/data/glove.840B.300d.zip", dest: "/opt/glove/glove.840B.300d.zip" }
+    - { url: "http://nlp.stanford.edu/data/glove.twitter.27B.zip", dest: "/opt/glove/glove.twitter.27B.zip" }
