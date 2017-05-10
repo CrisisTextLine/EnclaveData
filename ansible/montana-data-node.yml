@@ -21,6 +21,7 @@
     - add-researcher
     - desktop
     - jupyter
+    - spss
   tasks:
   - name: Install Git
     yum: name=git state=present
