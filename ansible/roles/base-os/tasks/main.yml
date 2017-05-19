@@ -10,6 +10,7 @@
    - net-tools
    - libsemanage-python
    - libselinux-python
+   - emacs
 
 - name: Clear yum cache
   command: yum clean all
