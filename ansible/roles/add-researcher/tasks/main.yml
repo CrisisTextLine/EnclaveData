@@ -1,8 +1,14 @@
+- name: Add researchers unix group
+  group:
+    name: researchers
+    state: present
+
 - name: Add Local Researcher
   user:
     name: "{{ item.name }}"
     shell: "/bin/bash"
     password: "{{ item.user_password }}"
+    groups: researchers
   with_items: "{{researchers}}"
   when: researchers is defined
 
@@ -10,6 +16,23 @@
   file: dest=/home/{{ item.name }}/.ssh owner={{ item.name }} group={{ item.name }} mode=750 state=directory
   with_items: "{{researchers}}"
   when: researchers is defined
+
+- name: Create dropbox directory
+  file: dest=/dropbox owner=root group=root mode=755 state=directory
+
+- name: Create user dropbox
+  file: dest=/dropbox/{{ item.name}} owner={{ item.name }} group={{ item.name }} mode=750 state=directory
+  with_items: "{{ researchers }}"
+  when: researchers is defined
+
+- name: Add SSH rule for upload user
+  notify: restart sshd
+  blockinfile:
+    path: /etc/ssh/sshd_config
+    block: |
+      Match Group researchers
+        ChrootDirectory /dropbox
+        ForceCommand internal-sftp -d /%u -p open,close,write,realpath
 
 #- name: Setup Researcher Public Keys
 #  authorized_key:
