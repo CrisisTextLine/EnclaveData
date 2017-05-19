@@ -30,6 +30,14 @@
     - spacy
     - tensorflow
     - ipython
+    - seaborn
+    - phpserialize
+    - sklearn
+    - vaderSentiment
+    - yahmm
+    - lightning-python
+    - pudb
+    - glove_python
 
 - name: Install spacy model
   shell: "python -m spacy download en"
