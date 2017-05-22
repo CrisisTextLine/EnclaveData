@@ -70,3 +70,6 @@
 
 - name: Install rstudio
   yum: name=/tmp/rstudio.rpm state=present
+
+- name: Disable lock on screensaver
+  command: "sudo -u {{ item.name }} gsettings set org.mate.screensaver lock-enabled false"
