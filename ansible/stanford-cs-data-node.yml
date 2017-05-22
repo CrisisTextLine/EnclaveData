@@ -9,14 +9,17 @@
         user_password: "{{ lookup('password', 'credentials/stanford-cs.jure length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/stanford-cs.jure length=15') }}"
         xdisplay: 0
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCoU/YoPOHyNCKUn747/bpbzj8yABJMj5RMPHe9ssPnQbKdt9rYjsMXCZXdEHcy3lGE4f1LgF7daCCGKW/XfNZq2qpJQyQQvsrZfCg2RGb0GcYzUZZXXTAMcjTttFyeae1y7/MK6ukiaR79eZNkctz8nxLQ7tixwcKNw489HZaN/sML1TmgTdYbesqevP+8xAscynD5O5i+LDEAsJxt7Mzllp3ZRx1fll6cF6m/lupft4iAANZiMSYuHYHlKWOulxSRVGU7E0YguogwEA7KzeM21s0TYm0nJyGBN8G9Ez/AZgOVaU/B4iqnmeu2yqHAV0GA9sbI8uysvgPqAbJK8ovn"
       - name: "tim"
         user_password: "{{ lookup('password', 'credentials/stanford-cs.tim length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/stanford-cs.tim length=15') }}"
         xdisplay: 1
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaxUHkq25ytrMOG/Nsspfl6mGydD/Lmi/eDwWHshACkbz2f50v2Gt3gjsWF0JtEt6tvmdq6tBvMLbC9oK/X0FuS1BDOUNXSuED5CW+IzxQr3ggDPVTt+7fuekGeXcaO511RT1YB8FDuxlUtzJ122AuQlJir2GRwP6kQ1pEcumU5e7HHYf6jF7GZ/046oppxVXiY0yMTQGmBO3skEB1qnF/IA5RRDjIbm8xg0IZpuBbf7468XsWd18ujagaebCg5omr1Z3hQcVToWWLqlpsu2Wxk6+Ez4TNRcdmOMZQx8e91+wRiHnG7nbHlIv87b0omGYzgbbgHyiiUmFNHyrkomwL"
       - name: "reid"
         user_password: "{{ lookup('password', 'credentials/stanford-cs.reid length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/stanford-cs.reid length=15') }}"
         xdisplay: 2
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIR+oVNl6e2qae2LNH+LhiFhwLISKj+5KokJ8go4THdl8ILTBGCDhsv+KInwoafeU3COznW5jygsNpi/cKrMPoLEitjYSWh/gVxYwoC4Dk+hR4Gjms4uBZpHCEJs+UTEnrEDGFbLrwafuzb1RfifumpzBWhJnc2TsC9t2TQfndehnpYQhCYEXYTrp6mxvKkElpsBRrw0bGOgUfhOvJUS++Sr5JTVEAEz/bM69z/VCwNE0g28/2XLaJ/w7JS3c6Af5HTPRJvo0iLTJZGDYB9uuoZm1w5SuNSkyFkYOWbBSAjVDQSg7n0ybinExlm67EXzDfW6n8kVpzRvTLr9I7vyyp"
   roles:
     - base-os
     - data-node

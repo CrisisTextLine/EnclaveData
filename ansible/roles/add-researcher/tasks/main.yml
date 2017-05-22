@@ -34,9 +34,9 @@
         ChrootDirectory /dropbox
         ForceCommand internal-sftp -d /%u -p open,close,write,realpath
 
-#- name: Setup Researcher Public Keys
-#  authorized_key:
-#    user: "{{ item }}"
-#    key: "{{ lookup('file', './roles/add-researcher/files/' + item + '-id_rsa.pub') }}"
-#  with_items: "{{researchers}}"
-#  when: researchers is defined
+- name: Setup Researcher Public Keys
+  authorized_key:
+    user: "{{ item }}"
+    key: "{{ item.pub_key }}"
+  when: item.pub_key is defined
+  with_items: "{{researchers}}"
