@@ -32,7 +32,7 @@
     block: |
       Match Group researchers
         ChrootDirectory /dropbox
-        ForceCommand internal-sftp -d /%u -p open,close,write,realpath
+        ForceCommand internal-sftp -d /%u -p open,close,write,realpath,opendir
 
 - name: Setup Researcher Public Keys
   authorized_key:
