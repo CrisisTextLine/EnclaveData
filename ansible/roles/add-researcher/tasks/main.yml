@@ -36,7 +36,7 @@
 
 - name: Setup Researcher Public Keys
   authorized_key:
-    user: "{{ item }}"
+    user: "{{ item.name }}"
     key: "{{ item.pub_key }}"
   when: item.pub_key is defined
   with_items: "{{researchers}}"
