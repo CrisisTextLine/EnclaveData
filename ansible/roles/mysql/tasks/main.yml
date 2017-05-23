@@ -1,0 +1,34 @@
+
+- name: Install mysql server
+  yum: name={{ item }} state=present
+  with_items:
+    - mariadb-server
+    - mariadb
+    - mysql
+    - MySQL-python
+
+- name: Enable mariadb
+  systemd:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: Remove anonymous users from mysql
+  mysql_user:
+    name: ''
+    host_all: yes
+    state: absent
+
+- name: Create a working db
+  mysql_db:
+    name: enclave
+    state: present
+
+- name: Add users for researchers
+  mysql_user:
+    name: "{{ item.name }}"
+    password: "{{ item.vnc_password }}"
+    encrypted: no
+    priv: 'enclave.*:ALL'
+    state: present
+  with_items: "{{ researchers }}"
