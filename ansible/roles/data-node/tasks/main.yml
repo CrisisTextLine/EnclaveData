@@ -19,7 +19,7 @@
   pip: name=setuptools state=latest
 
 - name: Install gcc
-  yum: name=gcc state=present
+  yum: name=gcc-c++ state=present
 
 - name: Install Python packages
   pip: name={{ item }}
