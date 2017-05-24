@@ -1,0 +1,9 @@
+variable "full_name" {}
+variable "name" {}
+variable "dbname" {}
+variable "dbpass" {}
+variable "cidr" {}
+variable "long_name" {}
+variable "cidr_data_node" {}
+variable "cidr_rds_1" {}
+variable "cidr_rds_2" {}
