@@ -18,6 +18,9 @@
 - name: Update setuptools
   pip: name=setuptools state=latest
 
+- name: Install gcc
+  yum: name=gcc state=present
+
 - name: Install Python packages
   pip: name={{ item }}
   with_items:
