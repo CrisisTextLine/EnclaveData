@@ -1,0 +1,26 @@
+---
+- hosts: georgia-tech-data-node
+  become: true
+  gather_facts: yes
+  vars:
+    server_name: georgia-tech-data-node
+    researchers:
+      - name: "munmun"
+        user_password: "{{ lookup('password', 'credentials/georgia-tech.munmun length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/georgia-tech.munmun length=15') }}"
+        xdisplay: 0
+      - name: "eva"
+        user_password: "{{ lookup('password', 'credentials/georgia-tech.eva length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/georgia-tech.eva length=15') }}"
+        xdisplay: 1
+  roles:
+    - base-os
+    - data-node
+    - hostname
+    - update-all
+    - add-researcher
+    - desktop
+    - jupyter
+  tasks:
+  - name: Install Git
+    yum: name=git state=present

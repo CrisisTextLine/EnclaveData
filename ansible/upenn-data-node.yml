@@ -1,0 +1,30 @@
+---
+- hosts: upenn-data-node
+  become: true
+  gather_facts: yes
+  vars:
+    server_name: upenn-data-node
+    researchers:
+      - name: "kokil"
+        user_password: "{{ lookup('password', 'credentials/upenn.kokil length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/upenn.kokil length=15') }}"
+        xdisplay: 0
+      - name: "jen"
+        user_password: "{{ lookup('password', 'credentials/upenn.jen length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/upenn.jen length=15') }}"
+        xdisplay: 1
+      - name: "lyle"
+        user_password: "{{ lookup('password', 'credentials/upenn.lyle length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/upenn.lyle length=15') }}"
+        xdisplay: 2
+  roles:
+    - base-os
+    - data-node
+    - hostname
+    - update-all
+    - add-researcher
+    - desktop
+    - jupyter
+  tasks:
+  - name: Install Git
+    yum: name=git state=present
