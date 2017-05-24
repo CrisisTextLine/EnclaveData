@@ -22,6 +22,7 @@ resource "aws_instance" "main" {
   disable_api_termination = true
   subnet_id = "${aws_subnet.data-node.id}"
   key_name = "Level-3-Launch"
+  vpc_security_group_ids = ["${aws_security_group.data-node.id}"]
 
   tags {
     Name = "${var.full_name} Data Node"
