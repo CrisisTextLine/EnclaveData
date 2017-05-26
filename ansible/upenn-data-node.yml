@@ -19,6 +19,7 @@
         xdisplay: 2
   roles:
     - base-os
+    - mysql
     - data-node
     - hostname
     - update-all
