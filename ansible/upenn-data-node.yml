@@ -29,3 +29,5 @@
   tasks:
   - name: Install Git
     yum: name=git state=present
+  - name: Install dlatk
+    pip: name=dlatk state=present
