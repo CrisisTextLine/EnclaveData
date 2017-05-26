@@ -4,6 +4,7 @@
   with_items:
     - mariadb-server
     - mariadb
+    - mariadb-devel
     - mysql
     - MySQL-python
 
