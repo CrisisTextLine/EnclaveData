@@ -71,6 +71,19 @@
 - name: Install rstudio
   yum: name=/tmp/rstudio.rpm state=present
 
+- name: Make autostart dir
+  file:
+    path: /home/{{ item.name }}/.config/autostart
+    state: directory
+    owner: {{ item.name }}
+    group: {{ item.name }}
+  with_items: "{{ researchers }}"
+
 - name: Disable lock on screensaver
-  command: "sudo -u {{ item.name }} gsettings set org.mate.screensaver lock-enabled false"
+  copy:
+    src: gsettings.desktop
+    dest: /home/{{item.name}}/.config/autostart
+    owner: {{ item.name }}
+    group: {{ item.name }}
+    mode: 0664
   with_items: "{{ researchers }}"

@@ -1,0 +1,9 @@
+[Desktop Entry]
+type=Application
+Exec=gsettings set org.mate.screensaver lock-enabled false
+Hidden=false
+X-MATE-Autostart-enabled=true
+Name[en_US]=Screensaver Disable
+Name=Screensaver Disable
+Comment[en_US]=
+Comment=
