@@ -75,15 +75,15 @@
   file:
     path: /home/{{ item.name }}/.config/autostart
     state: directory
-    owner: {{ item.name }}
-    group: {{ item.name }}
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
   with_items: "{{ researchers }}"
 
 - name: Disable lock on screensaver
   copy:
     src: gsettings.desktop
     dest: /home/{{item.name}}/.config/autostart
-    owner: {{ item.name }}
-    group: {{ item.name }}
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
     mode: 0664
   with_items: "{{ researchers }}"
