@@ -4,6 +4,6 @@ Type=Application
 Terminal=false
 Icon[en_US]=mate-panel-launcher
 Name[en_US]=SPSS Installer
-Exec=mate-terminal -x bash -c "/tmp/SPSS_Statistics_24_lin.bin -f /tmp/spss.{{ item.name }}.txt; cp /tmp/spss.license.{{ item.name }}.desktop ~/Desktop/license.desktop; cp /tmp/spss.{{ item.name }}.desktop ~/Desktop/spss.desktop"
+Exec=mate-terminal -x bash -c "/opt/SPSS_Statistics_24_lin.bin -f /opt/spss.{{ item.name }}.txt; cp /opt/spss.license.{{ item.name }}.desktop ~/Desktop/license.desktop; cp /opt/spss.{{ item.name }}.desktop ~/Desktop/spss.desktop"
 Name=SPSS Installer
 Icon=mate-panel-launcher

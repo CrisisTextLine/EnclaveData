@@ -2,13 +2,13 @@
 - name: Copy SPSS installer
   copy:
     src: SPSS_Statistics_24_lin.bin
-    dest: /tmp/SPSS_Statistics_24_lin.bin
+    dest: /opt/SPSS_Statistics_24_lin.bin
     mode: 0755
 
 - name: Copy SPSS config file
   template:
     src: config.j2
-    dest: /tmp/spss.{{ item.name }}.txt
+    dest: /opt/spss.{{ item.name }}.txt
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
     mode: 0755
@@ -17,7 +17,7 @@
 - name: Copy SPSS launch shortcut
   template:
     src: launch.desktop.j2
-    dest: /tmp/spss.{{ item.name }}.desktop
+    dest: /opt/spss.{{ item.name }}.desktop
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
     mode: 0755
@@ -26,7 +26,7 @@
 - name: Copy SPSS license shortcut
   template:
     src: license.desktop.j2
-    dest: /tmp/spss.license.{{ item.name }}.desktop
+    dest: /opt/spss.license.{{ item.name }}.desktop
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
     mode: 0755
