@@ -6,10 +6,12 @@
     server_name: virginia-tech-data-node
     researchers:
       - name: "stephen"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+rdIfT6g3En5Dq/BV6/LOOn7EktDespRqOjD0O/Sgp0W/k0l2imtqAk2MpvO0DL4xQ5WJ2fZAVEDl0vDkzecCdp6hXEdyEm+KAAyLOKV/bKc1cCopiMqOIWHS7l3pGwjD8GZasxZvY7nxV+Q6WCQsgC8GyweATQDW4xEirWYZMcXzMWbj+FbS/v5JomGuZ8O1eNkEu6lgRw1sex9GMsUw1Y/Er6vD31wVW4806mtBc5Vg849UHCM36k5GHnEFqk/gX1dFxdjt6GGm686AkelPAtmy7bm9MNbdNnIJCkZ+8T6pqiPnq8wCnW44SCS5ndXxBZo4pKJRMDON+mMYYmC7"
         user_password: "{{ lookup('password', 'credentials/virginia-tech.stephen length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/virginia-tech.stephen length=15') }}"
         xdisplay: 0
       - name: "dana"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+y/GJynGz854vfz9Ocyix1AC2P+kWbFdoe/c1aBgQ22PWtd+gBl2pghhsMXM938WkTfBa7LPLka1psnQ/+ntjN9xYL07KVUiU2dJznKzNAAeznzmJ8DP2t70GHS6q8JacEelSj6a0IBATSFAKc9WvRaUaKjxPOXxhu85ZHjEnFpzWKm6KEHrexr7IJmSb9gCaFQS6K3FwCjcB0QVLWY0nir5hq5oPYFLoioaS10r00fWTLk/9JemQAdwbfUdveAqsQ9Vd0Byw9TVwrtEmGqiN3tZ9TkdYq+yxgvh9g/IRkpMmM3YoVATDTz4Jo8/weQILHWCsudttOiYBcpgJ2ALp"
         user_password: "{{ lookup('password', 'credentials/virginia-tech.dana length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/virginia-tech.dana length=15') }}"
         xdisplay: 1

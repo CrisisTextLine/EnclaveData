@@ -6,6 +6,7 @@
     server_name: brain-data-node
     researchers:
       - name: "rebekah"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaH07ZGQMoGQrGVTDoU7tLCjQL5nPT18bRzFPlI0j69ZDFUX4RmATmU22RjT641W7J3jpYfh7FzB/9oJpY6qu7eW5+1eg6FqHx66AeGWSnTz8GE9ppgvVt/kW48ZhG8L/L5qRlgtkXGn5HmDAhq/ioSmECwgxKh74aMjSssBOpxqmDukRcii279TMsFu4dDOebuTe5okzov8tZ+5ZAnful7aGDfB9fByvHGgmLrQ6KzcrO6g8wgDaKvDgUYzgooyPMKv+J32iKbD6+ppHK5rZ2KjPBN/Gxwx5R0V7yXyTTjHx/ue3wPUdrXMmDxU0OcOSVPhD8F9SvLti4Ltwc3Gud"
         user_password: "{{ lookup('password', 'credentials/brain.rebekah length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/brain.rebekah length=15') }}"
         xdisplay: 0

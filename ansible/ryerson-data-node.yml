@@ -6,14 +6,17 @@
     server_name: ryerson-data-node
     researchers:
       - name: "eric"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCRYnQPOQS9fG472ZQQ05ay5ASpwfr3zd1IipZmAA/+LgnfMnSUsIDRV7c2Qb1wl6oBspp/VuXBUOThPG4VMix9fh9Kof0pIr0+U8EYnnkUJGhd2Lz1CJyJg4eNE0by2ufobf9DJxf5VZqbtZE7VOjENmnbGvJcCmQ8+jUf17Ws4so8RVoTAlXTqPGoLsEgUwgd8n9fDnDRmwhiZCI/hlZJ3rMAlvj1/5o4nLGCWp97uaE3uT6EWDhf/cxx0HT68trxyfdc1guldHm1LvZmHxFCg8jxlTz8AXDPXHlY1MO3LFu/+zXqlQ9oDVLql3XpEyw52issncXDKmZ9akUnYSyV"
         user_password: "{{ lookup('password', 'credentials/ryerson.eric length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/ryerson.eric length=15') }}"
         xdisplay: 0
       - name: "zachary"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIVHuUS9/eGriJNmc63FM3bGX+FVGCB6DyECK3OH2jIUk129bp2/RW3hn/ZOvZIYQN1c/nxy8fTSSIi0O3dTPbms+XUxgd0/x1K772TiGcni3eUiDHe64u/GnHSKKuGhcTwQKSOZRnTDvVWo0KVV4J7B9VpBA2nDP3DKgKPlC/MMnx/sTB/XpCiCt3aKJ8/kDfr8JudcQcAlAqv65HLtCba/iurkbvMBEygUELvsyxk2144YGZOghh9zxSiApbAdSomO0AKNTyg0G7WnHgvLSlr1UeSox2syxgZMwSYq7Mz7K7oecZgYz/m1cCGHzMciANk+tK0rFNhkVylcOlWppD"
         user_password: "{{ lookup('password', 'credentials/ryerson.zachary length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/ryerson.zachary length=15') }}"
         xdisplay: 1
       - name: "jordan"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCYONM2MxaRw28Rg2aTgY/vg45m5URmkGtYcWyhQ7X9laDP03rvCmo6MfCUoKqrht6E5EPVZ5KZTxFcosUVDCEVCBH9W+9/8FERD5J+EeqcObCRmkBp3h8RDrzEW38EIacQ0Xp6hVGG3AUpb5V/sfVQLaIoVbFMgQQ5e8eQF3sx+g4CAMIrc4QdIyEzKrOOXLK/3YkPj1cuu6mC0ejVhdGox/rwbzcY/5R1m6IHmjpSymPZqczH98ysfvEyA4cHGY/PCzPVsviQJeWM7QQztDaDoU9bawfNoA59AuKHivUwRhxpYu9nF8uQFQdiDwsOM+d/9TRyWAkPNppifjqbTsQf"
         user_password: "{{ lookup('password', 'credentials/ryerson.jordan length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/ryerson.jordan length=15') }}"
         xdisplay: 2

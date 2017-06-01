@@ -6,10 +6,12 @@
     server_name: montana-data-node
     researchers:
       - name: "ryan"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDyykWi78H3xj5Y3CDwLJC1O7YrgrUSjgE4OX12m/25RQunK6qlVaSSUxGX4Og4+3eRj+VPmY6HSX8BrVyyDYr9R6RB7KwPv0ty6av61Yehtg6PErY6cFH6/ICB9Jo4UOafq9OBeBk2nuKzbCX973xpMuzx0n++NgLnbLbyTMG5lQCoj7aCJ2dIZMu1J/py7qdR175z5C5Sc+s+3+fh89AlcaPsDGU2/O/D+kJQIqiEjWJa5nLaYxu2wbgH67mN6m/lZ89vDmCdSQMZHybhBGn28rtFAaoEvhKByH5Zw9Ql/DuRiSSoXmdY0AiIgfR6kLHOcKIPsZawKaggeCUZd/t"
         user_password: "{{ lookup('password', 'credentials/montana.ryan length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/montana.ryan length=15') }}"
         xdisplay: 0
       - name: "kim"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7CBLp8NhStgUK7HcQ/64Z6yIj4vvv4Y/ihh/lsxYdkevvIwvdfEPMctliqYAbcovD3s6LnEP9jG+RJwXStp4PO3hJnVit0mEKwyK869TrsdWp2Jna2HIQz2Lr17tRgRAz9JLLhOFqDFWqOGtk7oNI4Rb0uE5ZXVNZVdgNQ+eym40EtrgtCOg0+kxH+Cfrht65yh2zw5myxgo1qBJVqxnS+5en/2Q4hhlbhCHfiZSIw2FgxlO0MtEtzS+zLm38DLwS2eLhiz0Y4keHplE2yz83DlQptUuqXJCRZRzAn/4N3WG0PSR/Ht2Y9+oZpH1YIIMT5T1wInNsxw4WNsirg8+P"
         user_password: "{{ lookup('password', 'credentials/montana.kim length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/montana.kim length=15') }}"
         xdisplay: 1

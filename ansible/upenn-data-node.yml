@@ -6,14 +6,17 @@
     server_name: upenn-data-node
     researchers:
       - name: "kokil"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyJNlTxp6jooc0O9Q4fHiI0zyGIj+ENx63fhYxIXsK/Bh9dTdgwMtJkbdmTn5z+BNmTdog42yi1YnXGed02UZgd3wdD0hgKRw0TZhTn2KfAtxIKrU5bjuMR3hznoa7EMimd54JP5Xm0pZDjFoh6lwXqYSJE7k/znDEk2I8SgkFgvXjSyYzbxrPYDtMlFFScaeUtX87ppjMRQffMUNK74i3qQ8z3xhpoQ+raRs04EEGTgS8UadHU5NtDqosr1bs2JaGPCwGpFsF/Fs7Gl9Kx68f/1Hhw3Idwuq6QpIYNE7X6NLSMcHLabBxDj/V06qr4rsyKaroM1leRTyMhYV1iczH"
         user_password: "{{ lookup('password', 'credentials/upenn.kokil length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/upenn.kokil length=15') }}"
         xdisplay: 0
       - name: "jen"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOALByZTnq1tHehYuHeL2qNFXnX/MJRP6MewFAigHE3quNVmbBvTiV2M5FQVTxar9IG1Ui4D23L/K3xYRtoL/tY5UMqegUShmKf8eVkEJYcqmMoxmT90/rtxgAvZ7iBv9WseMA8sLPwiQx+4z0vtJApUwqDd5Fusy/GROmNspNS0BoIzto8qmeY4mEI+faCBKnJklv+WopD+eCPNeGvCxmAUxgxzNFrVIVHwpENlRD2OQTNc5ZMKmJ5RnbqevzGHduWR07khlkdZPW53hUuZM1Tc22OrLOhFJLpQDD5Jf+OMp+lk4WDJXcd2E1dKapiNNZrEOflFHIIpAwGrdL+OaT"
         user_password: "{{ lookup('password', 'credentials/upenn.jen length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/upenn.jen length=15') }}"
         xdisplay: 1
       - name: "lyle"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqwSXf4Uj9bZzBb7Q9/nJVhteVM2dIp25bUxezeMAkzMY/h+OfP2GMsZSR/8An66IZurh8Wakm+pcUTdEFYxBTMhlAx9NtZtfyrzutbbnBWLWSk1IJXvpeoFGFsXEnGqFwADbiVG8xOcn5mC0LXMsmKrrFM1QOrKlzBWhepOjQOwpFnMjqm7+jv+0hbH8Kpr4HpHPWf+4v1cutccCV2U8sGW328+iaVewzzjlHIhi1snPBJu2qf2YMbBpbdCgUrrm5Z5YzoTYkM/4koBtzlBN/wlcXRe8jY/L5bxCewDWO2eaMQv2D8qwt9Hqz7MSQCTDIEjoPQffu/F7BnAX55xZl"
         user_password: "{{ lookup('password', 'credentials/upenn.lyle length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/upenn.lyle length=15') }}"
         xdisplay: 2

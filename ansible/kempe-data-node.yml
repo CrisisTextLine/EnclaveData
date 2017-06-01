@@ -6,6 +6,7 @@
     server_name: kempe-data-node
     researchers:
       - name: "laura"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNt4akiGZwf4+lLb6Y2yF85XLN2CkWszgh3ntCX6L2m2+86GJKKlur8IipvuXMXuUjro0EEk31q6tx57bgAwMHO9aZhfs8OoEIWl6s3LhKMWp79Bb/6dHnRTkxvXNfuJMKhbDr/A51iwjJsoQBdGXGvMvWVpELP1QyibIaXdAHKhs2smE8ug438zTIwHpNeY9iCZ3PjFuz0O0ifzx09QFUpSsgLYJHvYa6RJdgc0tDHf9a6EYIy2MpgNWiZAqbm6nScRDCm7N8b58ZX00/Lqhllztfi2eukSuDsvWlFjwIsjqY/A+DKhGrt74+9RzWHzXvtIb+maO/EYygwPFNj4gj"
         user_password: "{{ lookup('password', 'credentials/kempe.laura length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/kempe.laura length=15') }}"
         xdisplay: 0

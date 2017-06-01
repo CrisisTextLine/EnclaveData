@@ -6,10 +6,12 @@
     server_name: cornell-data-node
     researchers:
       - name: "cristian"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRES+dHNQ4ZSzYRP97BOCmEoBiQ2QjmJXp9jBqOATR371wFCEhsO1GKWylb0VyPL0uh8vnWrLzVcFBt8+p8FWHkh8A34duiKC69VJGuXc64Eh/4YpEj8WHox/RcoaJzt1Ckl8NiBO6un/5BEbKbPWRyLmc6QVfC6svbaO7tKSDubQeXgeleA1jGPF57OjHi4rFDSrfXDN17lsAA1V2gJCt4vHPQBok+WHXQvCO4EjCISVMbkbCYwdgKAZhbzIXVVu/xfBxgVTkQrZ/H+z8oNpNWIYIZ1gohitC3wPQr5yku34vzyTAwJtzbFINO5lT/261R3TcTnaCB76xcWyH118Z"
         user_password: "{{ lookup('password', 'credentials/cornell.cristian length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/cornell.cristian length=15') }}"
         xdisplay: 0
       - name: "justine"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD2QndABaaWv84B9IeWGZ408OWsV3Mmf3UB/hsLxaKvjEEufk4wXZwfG78ISkJ4m+viwIePB7tnvTaH+KIdnez9R0cqaJZRXo5uNVb17Eu9QqzKAFObGhr7kvhYiE1glHmyUe/7ncNjaRFVah8bjX2e57//V775QW6VaRlyzWrq5nQstOLPe0+zOS/DQssrary29NA7KXXcw/kP9kvS3BITdM2cq8fGA50L23zXfeLOdAk1zW/RwZPsiBo5SnkAY24BopdYWTRey2ksE4cxjEP6XpH32qIWyBmP8qLd2SOYapIyuW4eX4HHQYpPwOrQyWzNbmLSuNKVvb71abpbg4KZ"
         user_password: "{{ lookup('password', 'credentials/cornell.justine length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/cornell.justine length=15') }}"
         xdisplay: 1

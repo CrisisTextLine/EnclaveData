@@ -6,6 +6,7 @@
     server_name: black-dog-data-node
     researchers:
       - name: "mark"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb3VzTaRiDqeKjGeqzisbqkUhcGsJithWBCVTmro97wPMFDvMgsAy595oldYS8EwoHn/7t6oEiPp88v8FZIVQddkqov3J39kDuuTRLbjfmecH6H2laTPEQ/UDmt/N+jMcRO5DMB/0DguLbPyPWCNgStx8r6xHGDTpvPAt6dA1vljrMFwi9Dny/0SvmQgD3D/UyFNhEVkZjRV2Z6lyudCv3NeZV9u+6YpVYpkGZEG2dMV8lFhu8yY9QqAL1rn6lq3sE/Y0YFGfqmtp+JzYx69was35IYUq7hINh2kHmDCjYdf7ULP7pn/xZrPCZ7iNioG5UPjLonKrAET9i7ya3WhKp"
         user_password: "{{ lookup('password', 'credentials/black-dog.mark length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/black-dog.mark length=15') }}"
         xdisplay: 0

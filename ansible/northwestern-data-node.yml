@@ -6,10 +6,12 @@
     server_name: northwestern-data-node
     researchers:
       - name: "james"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPTg+Ub+LNXkqLYlBdc0mhSjw96GFGtpnjCGACd/cJZ1Ok85Nlo5LU98khdeQlnxp4/7LJ4tR756ek2cT/c1UzS4YZoA9q7lrMWMPN34XQkDMlY/bmfitQ3YR9tb2eqxEJE5MUDtfju5fsjo1bpfVJC79Xlj6Qls2LyZxD/3yPnM4Yv/X8QF/MHze1HOZT4hyhRzPrDyBAmax7VoEnghF41/m093DeNsOuohLF8fKyzdaRzJNy0OkpfRVLFffUMfjdctgYLkPwS6il5vbiUsd68s6AE1vToV0VCB0tXMcgnFkwVnTJdjBG1CvtjBW0yZ1EjI5x+4HIPo9NDw8Oepbz"
         user_password: "{{ lookup('password', 'credentials/northwestern.james length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/northwestern.james length=15') }}"
         xdisplay: 0
       - name: "chenny"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqmu9xW7MqmIXdzIldA/ICn6AfWXeo1Ex78s/sd9QuvKnrDbLhd8pZnv1o4SyPe1gHmVg/L1cC4bsWip1D5vm+wCd8/OnmAiJnVoRTKutgHvL5caZOyLlogVYI00ySupXSfXW5E9Fo1w9vPB4UF9zGNpDFBWxHzP/9tYJdcqK0Vv9WN9542w9P/1N3mirG+r+sGgaYp9VZtgIzCAgOJHrkGCvG+H63ovPNj75p75kiifrrsnJzghOnatenpWL0qanEfqVMezEb5f7+Pu82j1xyIAgDJyGL8OtUZVl4QWJPxRV8i/gVyvW5tNQxxZcA113zqk3LBK/dXXeVUfc09kAh"
         user_password: "{{ lookup('password', 'credentials/northwestern.chenny length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/northwestern.chenny length=15') }}"
         xdisplay: 1

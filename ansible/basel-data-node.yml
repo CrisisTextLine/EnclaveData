@@ -6,10 +6,12 @@
     server_name: basel-data-node
     researchers:
       - name: "miriam"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCotA6mX+c6OqsCHNyMS+ityRTOPrIdR4Clt2WHiC1H8d+4YvYgJUHyrSFymx09qM8KIcikEU5KYgLgVv2h6u7jQJ0dq5yIl5Cd/GUDtiEISn/ozvV2Ev4EIfI3VVFbVWqcBqLBSwCY3SyTb0AMslJV5pLRAiWRwZ2iBW/rIJqi9ZpVjp+Js8EV53XoMHuErfui54PQBZUT3IovZAuKDmNFfKq0ZWVFBRyfJHR6yCOxbhLlOeVf52wHkI2o1dijBGWpn1hn5236tVDzqu3jNlsoBMavU+EGBB7S/x44aTnpPbii+FYEw+0NXo6n+NEubNOCXizlp6jzt9mryp6tmKRJ"
         user_password: "{{ lookup('password', 'credentials/basel.miriam length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/basel.miriam length=15') }}"
         xdisplay: 0
       - name: "daria"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDwZMfxMMuaZKZLQkv31KOoClZu/fTJpqG8vjYpZ+im06DpYF0R4NJU6Rvs5vXk9Iv570XGPSI7NUz94OCBqZbv5dv0stTKjDbNW2fp5ADN5Z4yl4cIj/ZDzMatZ/XxISrT4SOVOiug8m7Jp4fTzRsaWyf2vb0J9SDJ3qGJDHg2VycsLlWtVyy/FX0uZP2HEpWm7DiUNytVfNAnX8lKHncDlfLe1y6mOULTiiuPMwPsaAtILg2RewOx9xrFACriNgACl3tC/8WWrbk3/EOPFJ7LQEQXUtJDWRLg87AQyb5c81cBgYFEqyeLqEd2T6IKHta0WR+zA1ZpHTs3l/np5t3f"
         user_password: "{{ lookup('password', 'credentials/basel.daria length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/basel.daria length=15') }}"
         xdisplay: 1

@@ -6,10 +6,12 @@
     server_name: stanford-ess-data-node
     researchers:
       - name: "marshall"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAiPrHgFricyjo/4lcDtIvyRarWTAw0acqGi/l3Dv1V+5T9KaBY6A85jUpfqDTJMavLQn599U8hkFqw8sbrCp2cPjWQM1Es1C5aZSP8vnki8cK1vIw7N//hnsZhkT6PuFUrou8izpcPDAL1RHAmikV8BKE0AQS9g/p2qoDqtS2Qn6KWecN7TcgevonvSm7j1lI5y5VO/Eo+NuSavLtDkL50LK80FvpzZIUJp67zxw5Cr/af+Rz66IR8VuPRl0WAAqZ6eH6e5uuxz6+S5xdQ6CtpUq1Kw3/c5Wp9Xwcgw6YO9MycE/U3gc/If9yzIS7cYLFoeReI0ng6LtrVpW9ABUJ"
         user_password: "{{ lookup('password', 'credentials/stanford-ess.marshall length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/stanford-ess.marshall length=15') }}"
         xdisplay: 0
       - name: "patrick"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7vELO6GFz322ldOpEknCumG5TT+gnKtCeG1xRf/1xCnugnKvQukqkZPoWcoR0OZyvJwc/CHY3ilfCYPzDKh/w6eQ4nqwhhsWGlXBYOk7mUAloOdXUDQ3ZhJodhyTNGXmXHbhiqtJ7f/JmdBlnvfdVHI3PozzszW9/GEzA74yGG/sibJhii+7LiSKL+ipJuwhOPRhJoDTEcXd3EahXZJaWW4nNLWa3g7AbplBJaJKApVtghDmqV//zhzkGsi0fVztScxgJtGT8c+LVcDjoer+CDkJj+n2Y1HeFfToxhcB8AioaQO6x5a6KSA2af5DNeQR+uKvw4/+bWWcT6lyqj4IB"
         user_password: "{{ lookup('password', 'credentials/stanford-ess.patrick length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/stanford-ess.patrick length=15') }}"
         xdisplay: 1

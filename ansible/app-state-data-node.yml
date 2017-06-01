@@ -6,18 +6,22 @@
     server_name: app-state-data-node
     researchers:
       - name: "jennifer"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDgSMOJdbfCnCr2FZt2c7wHJpwbyW89slMvPTVzKU+XIsDr3pK/7ViP+3qQkQVKdew07Zf91U3AR8Yk+kWYH9oSpUa2X52b8xdcKuU55BDYv4DKbEWQEN/97bg00WWkSbIX2mIBKSe6xAn1vfYtDyBEjPUQFQb7Pv6XotoTb2wf3d+Im5hmYgKULVk46pMXDtOlFZYp+7H1dubPcQQeAMcXiVTX+xw1kjfKH6yAcBHIj9NbtS6HUrNM1oYngp1JVyr0jluvLcAquTmpnKpGS8tooPAGPrv4CC2P/PWczXDkHvgqt1lG5bEqmIy0XHyrY3DoU0Y1bWw3Ip3tQD6X8ZLp"
         user_password: "{{ lookup('password', 'credentials/app-state.jennifer length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/app-state.jennifer length=15') }}"
         xdisplay: 0
       - name: "maggie"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmqfyalemftqkfg5QC/9ormtvvPpcFAgfCfdGLCyWbQSUDtT3Rtg5L73biEha0BNK+4s2BJjbRwH4+Rfcn+oWyZzBBmIsACFuf/0vbz3Cy900DvX1kCRtJHzrSMJh36KphousXvI4IPkk9zOWg+8A+3AHqY/ib43Ikvv6O9s7iZdXl0sqJsszzCz6kwBYphLuMbLVCZnPGLf/0jJK4Es/71aiD/KeiFvK4iBYFw7csqteLUWGRwYfId77oucDq/6hw64mPHiwL4b1cdkYy2BsBI5NRr6heOkA69URP0PZas89b4waghWOP2AmFMnSz4ZuRy94LWk5V1UbJ+lHuFfcJ"
         user_password: "{{ lookup('password', 'credentials/app-state.maggie length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/app-state.maggie length=15') }}"
         xdisplay: 1
       - name: "will"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDp4eNyAD7xmAREyr1lplltPZxhSbFVC7fq9aA4vo8Y68Ke0enBc1T9vSnF4k0vaDZh6lCGBp1obRgBvoK26cr8dhF6I7iTbcAhRaigPfxK3CljoOfhqIUoo0T6R6ebQhsHCQzsAZQygh2ZsXJvQ2ZEateGiqbaWkZGMFUO8x2nsCsC83Nclj7P/VzVvfhjSecEhhogvOBqeUEhKdHp5n7TzoWBMSHT4KdQiSvFSA2MARDXnFFdO8RPyWxZKIMqocnZyvWuA1dvcPToGR4UIkaQugO0C2rdrxJ/2LhpLTLhYW5y7DT/tgBb15vsyWktBjuB6bHvhhZja7YCkA3tjX3H"
         user_password: "{{ lookup('password', 'credentials/app-state.will length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/app-state.will length=15') }}"
         xdisplay: 2
       - name: "laura"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOzHeaszj9ELaX4MuEhIYkr9QXU8zC38IlyUTidHWJZqrkS88a5sPpfr6ilTsfWyom6nv3Zldv26QuKCmcVIeuTSE227NtlysFr1YPsZCAzRU2jp80Z8xjKYuiEhr7FE7Fgckxra8lDWl+TGHfFvCCT33MMLmxfpvDFS9UN7C4qn22ErWz+L2YrYA4VaPEDhGZcJjJNsv1ptTeeeeRzIq37KdfbFN7+f9kG4GanPKjzVyFSjupHGmVU58+EtjYWNEK6TPadxos/Avk9UA/lH04GE3WAXio65HSN7MPuuueMizZ9Ea+0rlWSsKYOr3pwSrUSGxy/S5IDWdibkEMMaIH"
         user_password: "{{ lookup('password', 'credentials/app-state.laura length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/app-state.laura length=15') }}"
         xdisplay: 3

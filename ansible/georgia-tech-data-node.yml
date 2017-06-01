@@ -6,10 +6,12 @@
     server_name: georgia-tech-data-node
     researchers:
       - name: "munmun"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJ+y+UYrRXKfh3m2Rhdyn9VZMTmTjTagb6titLDpCKiDk0r5eUAumuxJYyfSY/PHDedY2MldsT17JsqnnjluDa8TNGLtnpfCXuAOmfvNvn2/lIXS6HoUsAol0A0kPDR5nMBa1ds0s49pH/Gw4v1OJKT/cZ1XcCV/ME9aJi77GAgdGc3XsBiisWmd9fcn7XJMkWkbBFHp7NqrfC7WsV+J80rsBjfc4wAtUm//jdTMw91jXuygQFhpShIKT5etmY/UCmw2pGPbw6nv8LoCNwkGL2rAfG/Y6uAHFb8kjemEMdNGsmHdSg8DV0KBIWES3x6zle2qBjOQn7W/NyigMEhDO7"
         user_password: "{{ lookup('password', 'credentials/georgia-tech.munmun length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/georgia-tech.munmun length=15') }}"
         xdisplay: 0
       - name: "eva"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDC5NBvi8c4NeixqiID29m0ftP61zTBnA1T5ubA5tQ/q6LLnIQNSSzAFUUetXnFxkolcfH5y/UNgaLMExly/Y1y6XR32kr6+R3t6RyEmxSsG0PbgJkX6+xoSi9f34ri650RjY/C/pq4eRvI974S+vSPwUK7vZbq9E/mtwIC9h6IlUPMCoIqaRkyvc80S+/P7vZ3kRBiJ79hbqC+ckKSlnDq43ef1qE9ChI0oQ8J1nKMeHl3U7QAaqlFxIiNi7TraJUXvYYvzR/kS+dB5bJo6/qwKktAoVjbJmjRZBxb5FxJWbiPU1Pk8MHsMoE7fBJxImJ/Eak+WiHTqQYSo4F2mMKh"
         user_password: "{{ lookup('password', 'credentials/georgia-tech.eva length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/georgia-tech.eva length=15') }}"
         xdisplay: 1

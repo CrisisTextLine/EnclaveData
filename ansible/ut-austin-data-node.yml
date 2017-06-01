@@ -6,10 +6,12 @@
     server_name: ut-austin-data-node
     researchers:
       - name: "hannah"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfY7IyOtJhmSGQ7Sd5QluMyJIyztFuE5m4QqDITLNjAhmyI6Xt8KA88EIhM4SGNw1QJYJDNc6Uiok+VyHSz3zFutwI6SC7+p1818Z/Ecif7QmXXVP175knwS0dMmJm+Nf5QFuPh7gMS25i+K1+Fl97ndT/RiXpIPDcXZoUb7t0d1JgZvpg0C+OGLp3g21B1QJhLN5+s/HgyWb1VxHJEUaj/wbOMTt6vJ7iy+T8ylesweWYeSUt1RVxnikrQ0uO/HcyUxTOFnCw5uRpDzQ2dJk76nNDQ7XvWb+gp8PbIbUhEw30Ot0NZFt0JVEgc3mX8vV4EaNOVLvBCH363aoFpb1p"
         user_password: "{{ lookup('password', 'credentials/utaustin.hannah length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/utaustin.hannah length=15') }}"
         xdisplay: 0
       - name: "victor"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDtVTLzPT0yUYRiza0Jwe4T6brXBWfgeTiKXyJico/hvwAui3U4U5O72vi1xjHvFTjKtKWX6C20eaDZd5mI0OlkINRchw7CHBsTk6Tv6RsfxTovbLz4O/3tMdV+dnwM8F/jP9jKNNT2IlbqNxcMyVGOed7lvmuO5kbjpuMfb30sBwLJsd/qv2VhOxb3cQVSt/GwJI/driTQXt+0NWkmGv4xET8dmewVVQMr0JSTyOXQ4K8EaHi5qu1WZCayxwoxruiS/Ggiwvni+m12sZGvKN+Kc49TgMe34Er7ZVKuUvK4D5yGMj8aWQdYR2fB6bb/gZXFpJ05BRneu3BgwRTXsVnv"
         user_password: "{{ lookup('password', 'credentials/utaustin.victor length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/utaustin.victor length=15') }}"
         xdisplay: 1

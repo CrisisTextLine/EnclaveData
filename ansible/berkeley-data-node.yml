@@ -6,10 +6,12 @@
     server_name: berkeley-data-node
     researchers:
       - name: "adrian"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDgW+mdqapm1lxhR5XMqlgy/cTkt/bec+EKtmNLxW9ldt6BLyX9/Nwr1DKS5Gp9dfZ5jPMOneUzxuqz+K3Y4puYtYwkyQOJnvPTzGmeASNklPabI94MroxdBnlcvED44065q5RuY8wkhY1XFly0bU8q52TFXku4FQakP9RgJjBidfF0DG+tSm4btKhPFwYzPzYyF1hL+PqF94WZhxrOcKDk07qyHps9SBam8jU6awr1Mh1MTAm/rmK2XK/Qgtv+pDlqtLLNfBqBsJG6i8i186fGcwDC4hhilKzWzeGhkwQJe9GPI8EBpvFGmxNpJ/7zGlWX6lidbLB5SOdRr1UeV7Wl"
         user_password: "{{ lookup('password', 'credentials/berkeley.adrian length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/berkeley.adrian length=15') }}"
         xdisplay: 0
       - name: "orianna"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCw72lZBd+14sJOuAw1Kpbhwr5hKpRic3JY6JVumdzbfLJ8SPjDUZGzvcdYLvFW7mBGc35kOOt6yNWfb6Bw9gTe623rAXdEmWi/FzWKimQx6nbew/8lYc5IB7+H0Ec/W6TUWEC+Uh2kcbH28QG9Js0tr35rt+h61tAuUUDKplVZVx4PJJaalkb/sIBKrvdHFPzvYp4IzMMQ02o3X7YpPAkkDa0yvocOS8Zabo8xAJWITkuKXkIA1H1xmnIOZW9Czd+5rME69I+QrJuiMQ8XRtrR4kzpPb5ucWMbA7r4uV+Lha8CuvO5WoIeZCkxJlmCFPetmJKb0b4D0uguFSp/+A1R"
         user_password: "{{ lookup('password', 'credentials/berkeley.orianna length=15 encrypt=sha512_crypt') }}"
         vnc_password: "{{ lookup('password', 'credentials/berkeley.orianna length=15') }}"
         xdisplay: 1
