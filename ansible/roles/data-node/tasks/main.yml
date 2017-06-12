@@ -21,6 +21,11 @@
 - name: Install gcc
   yum: name=gcc-c++ state=present
 
+- name: Install yum python packages
+  yum: name={{ item }} state=present
+  with_items:
+    - tkinter
+
 - name: Install Python packages
   pip: name={{ item }}
   with_items:
@@ -46,7 +51,6 @@
     - glove_python
     - dlatk
     - purestemmer
-    - Tkinter
 
 - name: Install spacy model
   shell: "python -m spacy download en"
