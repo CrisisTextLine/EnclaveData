@@ -45,6 +45,8 @@
     - pudb
     - glove_python
     - dlatk
+    - purestemmer
+    - Tkinter
 
 - name: Install spacy model
   shell: "python -m spacy download en"
