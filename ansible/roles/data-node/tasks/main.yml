@@ -70,28 +70,61 @@
 - name: Install R packages
   command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{item}}' %in% installed.packages()[,'Package'])) install.packages(pkgs='{{item}}', repos=c('http://www.freestatistics.org/cran/'))"
   with_items:
-    - rjson
-    - RPostgreSQL
+    - amelia
+    - arm
+    - broom
+    - car
+    - classint
     - data.table
+    - date
+    - dplyr
+    - effects
+    - foreign
+    - geosphere
+    - ggmap
     - ggplot2
-    - lfe
-    - lubridate
-    - zoo
     - ggthemes
-    - RColorBrewer
-    - scales
-    - stringi
-    - sp
+    - gistools
+    - graphicsqc
+    - hmisc
+    - icc
+    - lattice
+    - lavaan
+    - lfe
+    - lme4
+    - lmertest
+    - lubridate
     - maps
     - maptools
-    - broom
+    - mass
+    - mi
+    - nlme
+    - pastec
+    - pequod
+    - plyr
+    - prettyr
+    - psych
+    - quantpsyc
     - raster
-    - geosphere
+    - rcolorbrewer
+    - readr
     - rgdal
     - rgeos
-    - readr
-    - dplyr
-    - GISTools
+    - rjson
+    - rpostgresql
+    - scales
+    - sjmisc
+    - sjplot
+    - sp
+    - spatstat
+    - spdep
+    - spgwr
+    - splancs
+    - stringi
+    - tidyr
+    - writexls
+    - xlsx
+    - zoo
 
 - name: Create GloVe directory
   file: path=/opt/glove state=directory mode=0777
