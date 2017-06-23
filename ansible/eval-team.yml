@@ -1,0 +1,28 @@
+---
+- hosts: eval-team
+  become: true
+  gather_facts: yes
+  vars:
+    server_name: eval-team
+    researchers:
+      - name: "tony"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvMKJmvaWEKw276JOUF6hHMNqzQVfBLF7HoOEB3OflbEQKkuPV2HoO6RekzesTclg69VjhVrFCg9vEkbP8yjhSYv+6fJViXuloeAFdDC65Ul2qyIzSz63wkRJoKPcHSodOy6hUhrq84KfmFw+6ZBoremwa6pBf96VC4xs9ulg9/jrba3Xwp186glTmbCI+Y9M4804t3XTLfSdkT/MDSh+I6qo8lpAdSOjdYixrz+4R2GF3orKTl03qpUbghF9u4MQYWMqxBV7M9gUBlINp/brZmuAA6N76ODSC+v3LZm+nj0poy75q329ALg7mHV/Et+bfCiKwyC+1QUDY9AI0VaL9"
+        user_password: "{{ lookup('password', 'credentials/eval.tony length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/eval.tony length=15') }}"
+        xdisplay: 0
+      - name: "maddy"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDE/58pi8W3EWlPct72VbpZCRdaI89FM/lzhPStCZBimZDrBMlmDWhG1AHhHPaf9wv2Q6Lx8ndB7OCgOCymAD8WRrCPZJAtOhqEa4flfyqc7zuJxpqalIoCEqvHZCLYnWez+3Gcx3ZQKYFok4BZtuEsfYVXZBkaEmMLlrCMoWrcqJn0M/9iS3qw0DmXLpWtrcuz2RiVac8VkPoe9NHlBZQ5s8AxY5vJq85uNS+41kvwxYXP1zED93PlIF/5KLuqad3+5+8Ysr1swaX4y/0X+4WKM82khivaYeM7EfqUTansDZcpf/wuymZj/Nu7BB1cNiHdrY1xFily3rupYSRKGDvX"
+        user_password: "{{ lookup('password', 'credentials/eval.maddy length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/eval.maddy length=15') }}"
+        xdisplay: 1
+  roles:
+    - base-os
+    - data-node
+    - hostname
+    - update-all
+    - add-researcher
+    - desktop
+    - jupyter
+  tasks:
+  - name: Install Git
+    yum: name=git state=present
