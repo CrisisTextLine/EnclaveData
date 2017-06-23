@@ -49,7 +49,6 @@
     - lightning-python
     - pudb
     - glove_python
-    - dlatk
     - purestemmer
 
 - name: Install spacy model
