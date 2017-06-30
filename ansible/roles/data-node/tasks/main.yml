@@ -67,6 +67,16 @@
 - name: Install R
   yum: name="R" state=present
 
+- name: Install R-required packages
+  yum: name={{ item }} state=present
+  with_items:
+    - geos
+    - geos-devel
+    - gdal
+    - gdal-devel
+    - proj-epsg
+    - proj-nad
+
 - name: Install R packages
   command: /usr/bin/Rscript --slave --no-save --no-restore-history -e "if (! ('{{item}}' %in% installed.packages()[,'Package'])) install.packages(pkgs='{{item}}', repos=c('http://www.freestatistics.org/cran/'))"
   with_items:
