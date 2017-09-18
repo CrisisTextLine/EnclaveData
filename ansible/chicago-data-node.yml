@@ -1,0 +1,39 @@
+---
+- hosts: chicago-data-node
+  become: true
+  gather_facts: yes
+  vars:
+    server_name: chicago-data-node
+    researchers:
+      - name: "jason"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRPTIqki5hI9rOwjo4RhTtVcgccP2kXBY2iy5qZI0RtCVLImdPEP95kOmY8UZez4epuDonsI/M9XQiCiUd7PMvFRmOzOMnIEbpix2hAeUdW3nLBkTDipZyyvDKI54hfaQ7aqQjzWcujiNG4bUrsrkr8ht42Q6uH6nofR4Pdv+AHBfEh03NP5g5iRLPGkSQb2X2+fuNYvgN+xgoKsnJrcwlIxvyA1Aj9aag9vDW748gdslK2z3fAMPNyhcar2yrD/qvl5IOEKZTrw2bteDsT1aHZ8pNycwNkXty4+aLmxE6BxYuKHYCKE710J06J6aHu8xf1y/ejQI/TKJVudAe/8lv"
+        user_password: "{{ lookup('password', 'credentials/chicago.jason length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/chicago.jason length=15') }}"
+        xdisplay: 0
+      - name: "aarin"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdB1GkiKb4fpQuWouQMR/IJmxvQM43BvpSDsSoqgE6RjYt2wOyACA+VHYbSWb6Kk9Z6QV0A5Go40nbutYEJgYO8ZC19S6odKntKP5EVVPG5bGvWriSmY0TBpe20jEy/oraiVs6quOI2aKsNcxEYAlfL7wlXQfBWB6V8U27CzGwCw9BmA4zCNC9FajFfP5fOZETCmxSt4v4lkiqJtbiECMpvXS0M3cN6geRPIE09bogvcHO/Q2Z4nDrz9nhXMbIYNMOPr3ZcEtIvETUP/rpHxlxTKLxYunV4N/sy7JybTqixRfMGyvfY29BaET84RMMdQbDhzXLd1PA2EHYPRROCA3/"
+        user_password: "{{ lookup('password', 'credentials/chicago.aarin length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/chicago.aarin length=15') }}"
+        xdisplay: 1
+      - name: "melissa"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8/Vyyz/QJaV+E3PG9EnLgnUOe3q3jXUYQUyrizFXqemd/6dZegUzIYHHcXmG3LWLneHGtfdvJuFmuZZ0P/upV5HoaKl/LnxzEHLCM6csARMAIFg2h+5fo/i7Lmro88F/f4PQw2y3KazSXSFzJ6KTgIgGEf1zad368QuhkmiUc3rn8jN64d5LQLXsxS7V7feIbyqJFszNQItR0Ln8kUBmolj9OE3mrNMms2UvGwGwdxnKIdUywOh54IpL2s92J16UYUMqI9h1SPuN6OFXWs7r9/4jUs0jBUBy3thhyMm0hkwkRxN9IyjIuehQBmC1iqMLyV4QijSstIDSBXknIvCOp"
+        user_password: "{{ lookup('password', 'credentials/chicago.melissa length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/chicago.melissa length=15') }}"
+        xdisplay: 2
+      - name: "zubin"
+        pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC13EU98H8R3qsCkBfzvhBA4wJvAyRNGarf6F/nIeFHa3b/+c/z9lBLW1TEvQ4m6Y5AbCywbct0Jxjn+tslcjVmHIjRtQRZg9oe8GmV9k4yN/9xV6l7T2qouU9/OhfgAcZcs6FHVlmGQ7TT84Ym414LJbuhOyNQd5sd+SV+0OtryxowFrAm6HMvCkZCpbWp3r3IwXi+NXANzav2h/XqFQLCV7jAV6+P5YLLIEgmS0u/ZLFceqry/R1IRpeY9Xy+tQ7agpvAR2Vw2ScU2PlNTLvG1Y6fEHBcXvES4rmTUKuK1y17ggOFs9FpmIfsmCrj93cxci8VFLnMjP8rGwFv4nZt"
+        user_password: "{{ lookup('password', 'credentials/chicago.zubin length=15 encrypt=sha512_crypt') }}"
+        vnc_password: "{{ lookup('password', 'credentials/chicago.zubin length=15') }}"
+        xdisplay: 3
+  roles:
+    - base-os
+    - mysql
+    - data-node
+    - hostname
+    - update-all
+    - add-researcher
+    - desktop
+    - jupyter
+  tasks:
+  - name: Install Git
+    yum: name=git state=present
